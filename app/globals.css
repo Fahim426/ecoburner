@@ -1,26 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Bebas Neue', cursive;
+
+  --color-bg-primary: #0a0a0a;
+  --color-bg-surface: #141414;
+  --color-bg-elevated: #1e1e1e;
+  
+  --color-green-primary: #1a5c2a;
+  --color-green-light: #2d8a42;
+  --color-green-bright: #3aaa55;
+  
+  --color-gold: #8a7d3a;
+  --color-gold-light: #c8b84a;
+  
+  --color-text-primary: #e8e8e8;
+  --color-text-secondary: #b0b0b0;
+  --color-text-muted: #666666;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  width: 100%;
+  overflow-x: hidden;
+  scroll-padding-top: 90px;
+}
+
+html,
+body {
+  width: 100%;
+  background-color: #0a0a0a;
+  color: #e8e8e8;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a5c2a;
+  border-radius: 3px;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #2d8a42 0%, #c8b84a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Section label */
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #2d8a42;
+}
+
+/* Section pad */
+.section-pad {
+  padding: 5rem 0;
+}
+
+/* Card hover */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(26, 92, 42, 0.2);
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #1a5c2a, #2d8a42);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #2d8a42, #3aaa55);
+  box-shadow: 0 8px 25px rgba(26, 92, 42, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #25D366;
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.btn-whatsapp:hover {
+  background: #1ebe59;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: #e8e8e8;
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 4px;
+  border: 1px solid #3a3a3a;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.btn-outline:hover {
+  border-color: #2d8a42;
+  color: #2d8a42;
+  transform: translateY(-2px);
+}
+
+/* Green glow */
+.green-glow {
+  box-shadow: 0 0 20px rgba(26, 92, 42, 0.4);
+}
+
+/* Pulse dot */
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.5; }
+}
+.pulse-dot {
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+/* Slide up animation */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-slide-up {
+  animation: slideUp 0.4s ease-out forwards;
+}
+
+/* Font display */
+.font-display {
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 0.05em;
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* ── LAYOUT ─────────────────────────────────────── */
+
+/* Ensure sections always fill viewport width and respect sticky header */
+section {
+  width: 100%;
+  scroll-margin-top: 90px;
+}
+
+/* ── RESPONSIVE ────────────────────────────────── */
+
+/* Narrow screens only — ≤768px */
+@media (max-width: 768px) {
+
+  /* WasteCrisis — header 2-col → 1-col */
+  #crisis > div > div:first-child {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  /* WasteCrisis — stats 4-col → 2-col */
+  #crisis > div > div:nth-child(2) {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* ImpactMetrics — 4-col → 2-col */
+  #impact > div > div:last-child,
+  #compliance-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* HowItWorks — 5-col → vertical list */
+  #process > div > div:nth-child(2) {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  /* WhyEcoburner — 380px+1fr → 1-col */
+  #why-ecoburner > div > div:first-child {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+
+  /* FinalCTA — 2-col → 1-col */
+  #cta > div > div:first-child {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+
+  /* Products — 4-col → 2-col */
+  #products > div > div:last-child {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Header mobile adjustments */
+  #desktop-nav {
+    display: none !important;
+  }
+  #header-phone-cta {
+    display: none !important;
+  }
+  #mobile-menu-btn {
+    display: block !important;
+  }
+}
+
+/* Base state for mobile menu button */
+#mobile-menu-btn {
+  display: none;
+}
+
+/* Mobile — ≤480px */
+@media (max-width: 480px) {
+
+  /* Products — 1-col */
+  #products > div > div:last-child {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Stats — 1-col */
+  #crisis > div > div:nth-child(2),
+  #impact > div > div:last-child,
+  #compliance-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Hero headline size cap */
+  section h1 {
+    font-size: 2rem !important;
+  }
+
+  /* Section padding reduction */
+  section {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
 }
