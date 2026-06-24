@@ -6,7 +6,7 @@ const logos = [
   { src: "/images/logo-3.png", alt: "CM Multispeciality Hospital", height: "130px" },
   { src: "/images/logo-4.png", alt: "ABC", height: "130px" },
   { src: "/images/logo-5.webp", alt: "Indo Fish Meal & Oil Co.", height: "130px" },
-  { src: "/images/logo-6.jpeg", alt: "City Gold", height: "150px" },
+  { src: "/images/logo-6.png", alt: "City Gold", height: "150px" },
   { src: "/images/logo-7.png", alt: "Aramana Hospital", height: "140px" },
   { src: "/images/logo-8.png", alt: "Wintouch Academy", height: "130px" },
   { src: "/images/logo-9.png", alt: "The Global Public School", height: "130px" },
