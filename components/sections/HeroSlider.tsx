@@ -70,7 +70,7 @@ export default function HeroSlider() {
           overflow: hidden;
           background-color: #FFFFFF;
           border-bottom: 1px solid #DDE8E3;
-          margin-top: 90px; /* Starts exactly below the header section on all screens */
+          margin-top: 90px; /* Offset header on all screens */
         }
         .hero-container {
           position: relative;
@@ -80,15 +80,23 @@ export default function HeroSlider() {
         .hero-image-wrapper {
           position: relative;
           width: 100%;
-          height: calc(100vw * 2 / 3); /* Perfect 3:2 aspect ratio on mobile */
+          height: calc(100vw * 2 / 3); /* Perfect 3:2 aspect ratio on mobile (no cropping) */
           background-color: #F4F7F5;
           overflow: hidden;
+        }
+        .hero-gradient-overlay {
+          display: none;
         }
         .hero-content-wrapper {
           position: relative;
           width: 100%;
           padding: 32px 5vw 48px;
           background: #FFFFFF;
+        }
+        .hero-content-inner {
+          width: 100%;
+          margin: 0 auto;
+          max-width: 480px;
         }
         @media (min-width: 768px) {
           .hero-section {
@@ -104,19 +112,30 @@ export default function HeroSlider() {
             width: 100%;
             height: 100%;
           }
+          .hero-gradient-overlay {
+            display: block;
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.75) 45%, rgba(255, 255, 255, 0) 100%);
+            z-index: 1;
+            pointer-events: none;
+          }
           .hero-content-wrapper {
             position: absolute;
-            left: 5vw;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 480px;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(8px);
-            border: 1px solid #DDE8E3;
-            border-radius: 16px;
-            box-shadow: 0 20px 40px rgba(13,31,26,0.06);
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            padding: 0 5vw;
+            background: transparent;
+            display: flex;
+            align-items: center;
             z-index: 10;
+          }
+          .hero-content-inner {
+            margin-left: 0;
+            margin-right: auto;
+            max-width: 540px;
           }
         }
       `}} />
@@ -145,9 +164,12 @@ export default function HeroSlider() {
           </AnimatePresence>
         </div>
 
-        {/* Content Overlay Card */}
+        {/* Soft left-to-right gradient overlay for text readability on desktop */}
+        <div className="hero-gradient-overlay" />
+
+        {/* Content Wrapper */}
         <div className="hero-content-wrapper">
-          <div style={{ width: "100%" }}>
+          <div className="hero-content-inner">
             
             {/* Label */}
             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
