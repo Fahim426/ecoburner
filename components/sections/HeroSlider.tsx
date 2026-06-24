@@ -10,38 +10,38 @@ const slides = [
   {
     id: 1,
     image: "/images/1.png",
-    label: "ECO-FRIENDLY INCINERATION",
-    headline: "Industrial Waste Solutions",
-    headlineAccent: "Engineered for South India",
+    label: "WASTE-TO-ENERGY TECHNOLOGY",
+    headline: "Waste Is Not The End.",
+    headlineAccent: "It's The Beginning Of Energy.",
     subtext:
-      "State-of-the-art waste management systems designed for apartments, factories, and commercial facilities.",
+      "High-efficiency biogas systems that convert organic waste into clean, usable power — slashing utility costs.",
   },
   {
     id: 2,
     image: "/images/2.png",
-    label: "WASTE-TO-ENERGY TECHNOLOGY",
-    headline: "Convert Organic Waste into",
-    headlineAccent: "Free Renewable Power",
+    label: "SMART COMPOSTING SOLUTIONS",
+    headline: "Smart Composting Solutions For",
+    headlineAccent: "Greener Communities.",
     subtext:
-      "High-efficiency biogas systems that turn organic waste into clean, usable fuel — slashing your operational costs.",
+      "Advanced organic waste composters designed for apartments, housing societies, and commercial parks.",
   },
   {
     id: 3,
     image: "/images/3.png",
-    label: "SMART DIGITAL CONTROLS",
-    headline: "Fully Automated Processing",
-    headlineAccent: "At Your Fingertips",
+    label: "SANITARY DISPOSAL SYSTEMS",
+    headline: "Creating Cleaner Washrooms For",
+    headlineAccent: "Schools, Offices And Institutions.",
     subtext:
-      "Advanced control panels ensuring 100% compliance, effortless operation, and odor-free processing.",
+      "Compact, automated, and smoke-free sanitary napkin incinerators for hygienic public and corporate spaces.",
   },
   {
     id: 4,
     image: "/images/4.png",
-    label: "STAINLESS STEEL INCINERATORS",
-    headline: "Safe, Complete Disposal of",
-    headlineAccent: "Solid & Industrial Waste",
+    label: "INDUSTRIAL INCINERATION",
+    headline: "Industrial-Grade Incineration for",
+    headlineAccent: "a Cleaner, Safer Future.",
     subtext:
-      "Heavy-duty incinerators engineered to eliminate high-volume waste challenges safely, cleanly, and legally.",
+      "Heavy-duty thermal disposal systems engineered to eliminate solid, hazardous, and dry industrial waste legally and safely.",
   },
 ];
 
