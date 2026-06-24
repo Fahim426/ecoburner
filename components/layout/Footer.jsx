@@ -108,7 +108,7 @@ export default function Footer() {
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
               <div style={{ position: "relative", width: "44px", height: "44px", flexShrink: 0 }}>
-                <Image src="/images/logo.jpeg" alt="ECOBURNER" fill sizes="44px" style={{ objectFit: "contain", objectPosition: "left" }} />
+                <Image src="/images/logo.png" alt="ECOBURNER" fill sizes="44px" style={{ objectFit: "contain", objectPosition: "left" }} />
               </div>
               <div>
                 <div style={{ fontFamily: "'Bebas Neue', cursive", fontSize: "1.3rem", letterSpacing: "0.08em", lineHeight: 1 }}>

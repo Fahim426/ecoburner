@@ -52,7 +52,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" style={{ display: "flex", alignItems: "center", gap: "12px", textDecoration: "none" }}>
             <div style={{ position: "relative", width: "48px", height: "48px", flexShrink: 0 }}>
-              <Image src="/images/logo.jpeg" alt="ECOBURNER Logo" fill style={{ objectFit: "contain", objectPosition: "left" }} priority />
+              <Image src="/images/logo.png" alt="ECOBURNER Logo" fill style={{ objectFit: "contain", objectPosition: "left" }} priority />
             </div>
             <div>
               <div style={{ fontFamily: "'Bebas Neue', cursive", fontSize: "2rem", letterSpacing: "0.08em", lineHeight: 1 }}>
