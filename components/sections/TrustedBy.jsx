@@ -62,7 +62,7 @@ export default function TrustedBy() {
           }} />
 
           {/* Scrolling track */}
-          <div className="animate-marquee" style={{ display: "flex", gap: "40px", alignItems: "center" }}>
+          <div className="animate-marquee" style={{ display: "flex", gap: "80px", alignItems: "center" }}>
             {doubleLogos.map((logo, idx) => (
               <div
                 key={idx}
@@ -70,28 +70,20 @@ export default function TrustedBy() {
                   flexShrink: 0,
                   transition: "all 0.3s ease",
                   cursor: "pointer",
-                  background: "#FFFFFF",
-                  border: "1px solid #DDE8E3",
-                  borderRadius: "10px",
-                  padding: "16px 28px",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  height: "120px",
+                  height: "140px",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "scale(1.05)";
-                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(26,122,74,0.08)";
-                  e.currentTarget.style.borderColor = "#1A7A4A";
+                  e.currentTarget.style.transform = "scale(1.08)";
                   const img = e.currentTarget.querySelector("img");
                   if (img) img.style.opacity = "1";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = "scale(1)";
-                  e.currentTarget.style.boxShadow = "none";
-                  e.currentTarget.style.borderColor = "#DDE8E3";
                   const img = e.currentTarget.querySelector("img");
-                  if (img) img.style.opacity = "0.8";
+                  if (img) img.style.opacity = "0.85";
                 }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -99,12 +91,12 @@ export default function TrustedBy() {
                   src={logo.src}
                   alt={logo.alt}
                   style={{
-                    height: "80px",
+                    height: "110px",
                     width: "auto",
-                    maxWidth: "220px",
+                    maxWidth: "260px",
                     objectFit: "contain",
                     display: "block",
-                    opacity: "0.8",
+                    opacity: "0.85",
                     transition: "opacity 0.3s ease",
                   }}
                 />
