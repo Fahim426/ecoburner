@@ -98,6 +98,22 @@ export default function HeroSlider() {
           margin: 0 auto;
           max-width: 480px;
         }
+        .hero-nav-row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding-top: 20px;
+          border-top: 1px solid #EEF6F1;
+          margin-top: 20px;
+        }
+        .hero-indicators {
+          display: flex;
+          gap: 8px;
+        }
+        .hero-arrows {
+          display: flex;
+          gap: 8px;
+        }
         @media (min-width: 768px) {
           .hero-section {
             height: calc(100vh - 90px);
@@ -136,6 +152,25 @@ export default function HeroSlider() {
             margin-left: 0;
             margin-right: auto;
             max-width: 540px;
+          }
+          .hero-nav-row {
+            display: block;
+            border-top: none;
+            padding-top: 0;
+            margin-top: 0;
+          }
+          .hero-indicators {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+          }
+          .hero-arrows {
+            position: absolute;
+            bottom: 24px;
+            right: 5vw;
+            z-index: 20;
           }
         }
       `}} />
@@ -265,15 +300,9 @@ export default function HeroSlider() {
             </div>
 
             {/* Navigation Row */}
-            <div style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              paddingTop: "20px",
-              borderTop: "1px solid #EEF6F1"
-            }}>
+            <div className="hero-nav-row">
               {/* Indicators */}
-              <div style={{ display: "flex", gap: "8px" }}>
+              <div className="hero-indicators">
                 {slides.map((_, idx) => (
                   <button
                     key={idx}
@@ -293,7 +322,7 @@ export default function HeroSlider() {
               </div>
 
               {/* Navigation Arrows */}
-              <div style={{ display: "flex", gap: "8px" }}>
+              <div className="hero-arrows">
                 <button
                   onClick={prev}
                   aria-label="Previous slide"
