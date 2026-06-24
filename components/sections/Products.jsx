@@ -20,7 +20,7 @@ const products = [
   },
   {
     slug: "eco-bin",
-    title: "Eco-Bin",
+    title: "Eco-Bin Compost Machine",
     subtitle: "Food Waste Compost Machine",
     images: ["/images/product-ecobin.jpg", "/images/eco-2.jpeg"],
   },
