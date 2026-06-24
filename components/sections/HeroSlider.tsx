@@ -96,7 +96,7 @@ export default function HeroSlider() {
             style={{
               position: "absolute",
               inset: 0,
-              background: "linear-gradient(to right, rgba(255,255,255,0.92) 40%, rgba(255,255,255,0.6) 65%, rgba(255,255,255,0.0) 100%)",
+              background: "linear-gradient(to right, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.40) 50%, rgba(255,255,255,0.0) 100%)",
             }}
           />
 
