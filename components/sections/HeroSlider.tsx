@@ -6,7 +6,6 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-
 const slides = [
   {
     id: 1,
@@ -52,7 +51,7 @@ export default function HeroSlider() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((c) => (c + 1) % slides.length);
-    }, 5000);
+    }, 6000);
     return () => clearInterval(timer);
   }, []);
 
@@ -61,257 +60,277 @@ export default function HeroSlider() {
   const next = () => setCurrent((c) => (c + 1) % slides.length);
 
   return (
-    <section
-      style={{
-        position: "relative",
-        width: "100%",
-        height: "100vh",
-        minHeight: "600px",
-        overflow: "hidden",
-        backgroundColor: "#FFFFFF",
-      }}
-    >
-      <AnimatePresence initial={false}>
-        <motion.div
-          key={slides[current].id}
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.97 }}
-          transition={{ duration: 1.0, ease: "easeInOut" }}
-          style={{ position: "absolute", inset: 0 }}
-        >
-          {/* Background image */}
-          <div style={{ position: "absolute", inset: 0 }}>
-            <Image
-              src={slides[current].image}
-              alt={slides[current].headline}
-              fill
-              sizes="100vw"
-              style={{ objectFit: "cover" }}
-              priority={current === 0}
-            />
-          </div>
-          {/* Overlays: White B2B horizontal gradient overlay */}
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              background: "linear-gradient(to right, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.40) 50%, rgba(255,255,255,0.0) 100%)",
-            }}
-          />
+    <section className="hero-section">
+      {/* Responsive layout styles */}
+      <style dangerouslySetInnerHTML={{__html: `
+        .hero-section {
+          position: relative;
+          width: 100%;
+          height: auto;
+          overflow: hidden;
+          background-color: #FFFFFF;
+          border-bottom: 1px solid #DDE8E3;
+        }
+        .hero-container {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          margin-top: 90px; /* Offset header on mobile */
+        }
+        .hero-image-wrapper {
+          position: relative;
+          width: 100%;
+          height: calc(100vw * 2 / 3); /* Perfect 3:2 aspect ratio on mobile (no cropping) */
+          background-color: #F4F7F5;
+          overflow: hidden;
+        }
+        .hero-content-wrapper {
+          position: relative;
+          width: 100%;
+          padding: 32px 5vw 48px;
+          background: #FFFFFF;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        @media (min-width: 768px) {
+          .hero-section {
+            height: 100vh;
+            min-height: 600px;
+          }
+          .hero-container {
+            flex-direction: row-reverse; /* Image on right, text on left */
+            height: 100%;
+            margin-top: 0;
+          }
+          .hero-image-wrapper {
+            width: 58%;
+            height: 100%;
+          }
+          .hero-content-wrapper {
+            width: 42%;
+            height: 100%;
+            padding: 90px 4vw 0; /* Offset header on desktop */
+            border-right: 1px solid #DDE8E3;
+          }
+        }
+      `}} />
 
-          {/* Content */}
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              display: "flex",
-              alignItems: "center",
-              paddingTop: "90px", // offset fixed header
-            }}
-          >
-            <div
-              style={{
-                maxWidth: "100%",
-                margin: "0 auto",
-                padding: "0 5vw",
-                width: "100%",
-              }}
+      <div className="hero-container">
+        {/* Image Side (with crossfade) */}
+        <div className="hero-image-wrapper">
+          <AnimatePresence initial={false}>
+            <motion.div
+              key={slides[current].id}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
+              style={{ position: "absolute", inset: 0 }}
             >
-              <div style={{ maxWidth: "700px" }}>
-                {/* Label */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2, duration: 0.5 }}
-                  style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "24px" }}
-                >
-                  <div style={{ width: "32px", height: "2px", background: "#1A7A4A" }} />
-                  <span className="section-label" style={{ background: "#D4EDDA", color: "#1A7A4A" }}>
-                    {slides[current].label}
-                  </span>
-                </motion.div>
+              <Image
+                src={slides[current].image}
+                alt={slides[current].headline}
+                fill
+                sizes="(min-width: 768px) 58vw, 100vw"
+                style={{ objectFit: "cover" }}
+                priority
+              />
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
-                {/* Headline */}
-                <motion.h1
-                  initial={{ opacity: 0, y: 30 }}
+        {/* Content Side (Static container with clean text animations) */}
+        <div className="hero-content-wrapper">
+          <div style={{ maxWidth: "480px", margin: "0 auto", width: "100%" }}>
+            
+            {/* Label */}
+            <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+              <div style={{ width: "32px", height: "2px", background: "#1A7A4A" }} />
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={`label-${current}`}
+                  initial={{ opacity: 0, y: 5 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3, duration: 0.6 }}
+                  exit={{ opacity: 0, y: -5 }}
+                  transition={{ duration: 0.25 }}
+                  className="section-label"
+                  style={{ background: "#D4EDDA", color: "#1A7A4A", fontSize: "0.8rem", letterSpacing: "0.1em" }}
+                >
+                  {slides[current].label}
+                </motion.span>
+              </AnimatePresence>
+            </div>
+
+            {/* Headline */}
+            <div style={{ minHeight: "130px", display: "flex", alignItems: "flex-end", marginBottom: "8px" }}>
+              <AnimatePresence mode="wait">
+                <motion.h1
+                  key={`headline-${current}`}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.3 }}
                   style={{
-                    fontSize: "clamp(2.2rem, 5vw, 4.5rem)",
+                    fontSize: "clamp(1.6rem, 3.2vw, 2.6rem)",
                     fontWeight: 900,
                     color: "#0D1F1A",
-                    lineHeight: 1.1,
-                    marginBottom: "8px",
+                    lineHeight: 1.15,
+                    margin: 0,
+                    width: "100%"
                   }}
                 >
                   {slides[current].headline}
                   <br />
                   <span className="gradient-text">{slides[current].headlineAccent}</span>
                 </motion.h1>
+              </AnimatePresence>
+            </div>
 
-                {/* Subtext */}
+            {/* Subtext */}
+            <div style={{ minHeight: "90px", display: "flex", alignItems: "flex-start", marginBottom: "20px" }}>
+              <AnimatePresence mode="wait">
                 <motion.p
-                  initial={{ opacity: 0, y: 20 }}
+                  key={`subtext-${current}`}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5, duration: 0.5 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
                   style={{
                     color: "#4A6259",
-                    fontSize: "1.125rem",
-                    lineHeight: 1.7,
-                    maxWidth: "520px",
-                    marginTop: "20px",
-                    marginBottom: "32px",
+                    fontSize: "1rem",
+                    lineHeight: 1.6,
+                    margin: 0,
+                    width: "100%"
                   }}
                 >
                   {slides[current].subtext}
                 </motion.p>
+              </AnimatePresence>
+            </div>
 
-                {/* Primary CTA */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.65, duration: 0.5 }}
-                  style={{ marginBottom: "32px" }}
-                >
-                  <Link
-                    href="/contact"
+            {/* Primary CTA */}
+            <div style={{ marginBottom: "32px" }}>
+              <Link
+                href="/contact"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  background: "#1A7A4A",
+                  color: "white",
+                  fontWeight: 600,
+                  padding: "12px 28px",
+                  borderRadius: "8px",
+                  textDecoration: "none",
+                  transition: "all 0.2s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "#15623B";
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "#1A7A4A";
+                  e.currentTarget.style.transform = "none";
+                }}
+              >
+                Request Consultation
+              </Link>
+            </div>
+
+            {/* Navigation Row */}
+            <div style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              paddingTop: "20px",
+              borderTop: "1px solid #EEF6F1"
+            }}>
+              {/* Indicators */}
+              <div style={{ display: "flex", gap: "8px" }}>
+                {slides.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => goTo(idx)}
+                    aria-label={`Go to slide ${idx + 1}`}
                     style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      background: "#1A7A4A",
-                      color: "white",
-                      fontWeight: 600,
-                      padding: "14px 32px",
-                      borderRadius: "8px",
-                      textDecoration: "none",
-                      transition: "all 0.2s ease",
+                      height: "8px",
+                      borderRadius: "4px",
+                      border: "none",
+                      cursor: "pointer",
+                      transition: "all 0.4s ease",
+                      width: idx === current ? "24px" : "8px",
+                      background: idx === current ? "#1A7A4A" : "rgba(13,31,26,0.15)",
                     }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = "#15623B";
-                      e.currentTarget.style.transform = "translateY(-2px)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background = "#1A7A4A";
-                      e.currentTarget.style.transform = "none";
-                    }}
-                  >
-                    Request Consultation
-                  </Link>
-                </motion.div>
+                  />
+                ))}
+              </div>
 
-                {/* Scroll indicator */}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8, duration: 0.5 }}
-                  style={{ display: "flex", alignItems: "center", gap: "12px", marginTop: "8px" }}
+              {/* Navigation Arrows */}
+              <div style={{ display: "flex", gap: "8px" }}>
+                <button
+                  onClick={prev}
+                  aria-label="Previous slide"
+                  style={{
+                    width: "36px",
+                    height: "36px",
+                    borderRadius: "50%",
+                    background: "rgba(13,31,26,0.05)",
+                    border: "1px solid #DDE8E3",
+                    color: "#0D1F1A",
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    transition: "all 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#1A7A4A";
+                    e.currentTarget.style.color = "#FFFFFF";
+                    e.currentTarget.style.borderColor = "#1A7A4A";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "rgba(13,31,26,0.05)";
+                    e.currentTarget.style.color = "#0D1F1A";
+                    e.currentTarget.style.borderColor = "#DDE8E3";
+                  }}
                 >
-                  <div style={{
-                    width: "1px", height: "40px",
-                    background: "linear-gradient(to bottom, #1A7A4A, transparent)",
-                  }} />
-                  <span style={{ color: "#4A6259", fontSize: "0.875rem", letterSpacing: "0.15em", textTransform: "uppercase" }}>
-                    Scroll to explore
-                  </span>
-                </motion.div>
+                  <ChevronLeft size={16} />
+                </button>
+                <button
+                  onClick={next}
+                  aria-label="Next slide"
+                  style={{
+                    width: "36px",
+                    height: "36px",
+                    borderRadius: "50%",
+                    background: "rgba(13,31,26,0.05)",
+                    border: "1px solid #DDE8E3",
+                    color: "#0D1F1A",
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    transition: "all 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#1A7A4A";
+                    e.currentTarget.style.color = "#FFFFFF";
+                    e.currentTarget.style.borderColor = "#1A7A4A";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "rgba(13,31,26,0.05)";
+                    e.currentTarget.style.color = "#0D1F1A";
+                    e.currentTarget.style.borderColor = "#DDE8E3";
+                  }}
+                >
+                  <ChevronRight size={16} />
+                </button>
               </div>
             </div>
+
           </div>
-        </motion.div>
-      </AnimatePresence>
-
-      {/* Slide indicators */}
-      <div
-        style={{
-          position: "absolute",
-          bottom: "32px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          display: "flex",
-          gap: "10px",
-          zIndex: 10,
-        }}
-      >
-        {slides.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => goTo(idx)}
-            aria-label={`Go to slide ${idx + 1}`}
-            style={{
-              height: "8px",
-              borderRadius: "4px",
-              border: "none",
-              cursor: "pointer",
-              transition: "all 0.4s ease",
-              width: idx === current ? "32px" : "8px",
-              background: idx === current ? "#1A7A4A" : "rgba(13,31,26,0.2)",
-            }}
-          />
-        ))}
+        </div>
       </div>
-
-      {/* Arrows */}
-      <button
-        onClick={prev}
-        aria-label="Previous slide"
-        style={{
-          position: "absolute",
-          right: "70px",
-          bottom: "20px",
-          zIndex: 10,
-          padding: "10px",
-          borderRadius: "50%",
-          background: "rgba(255, 255, 255, 0.9)",
-          border: "1px solid #DDE8E3",
-          color: "#0D1F1A",
-          cursor: "pointer",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          transition: "all 0.2s ease",
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.borderColor = "#1A7A4A";
-          e.currentTarget.style.color = "#1A7A4A";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.borderColor = "#DDE8E3";
-          e.currentTarget.style.color = "#0D1F1A";
-        }}
-      >
-        <ChevronLeft size={20} />
-      </button>
-      <button
-        onClick={next}
-        aria-label="Next slide"
-        style={{
-          position: "absolute",
-          right: "20px",
-          bottom: "20px",
-          zIndex: 10,
-          padding: "10px",
-          borderRadius: "50%",
-          background: "rgba(255, 255, 255, 0.9)",
-          border: "1px solid #DDE8E3",
-          color: "#0D1F1A",
-          cursor: "pointer",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          transition: "all 0.2s ease",
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.borderColor = "#1A7A4A";
-          e.currentTarget.style.color = "#1A7A4A";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.borderColor = "#DDE8E3";
-          e.currentTarget.style.color = "#0D1F1A";
-        }}
-      >
-        <ChevronRight size={20} />
-      </button>
     </section>
   );
 }
