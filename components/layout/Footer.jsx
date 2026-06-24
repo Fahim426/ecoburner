@@ -121,8 +121,7 @@ export default function Footer() {
               </div>
             </div>
             <p style={{ color: "#4A6259", fontSize: "1rem", lineHeight: 1.7 }}>
-              Industrial-grade waste management solutions for South India&apos;s hospitals,
-              factories, and municipalities. Compliance-ready. Environment-safe.
+              ECOBURNER Waste Management Solutions Pvt. Ltd. delivers innovative and environmentally responsible waste management systems designed for hospitals, industries, institutions, commercial establishments, and municipalities. With a focus on sustainability and operational excellence, we help organizations manage waste safely and efficiently while contributing to a cleaner, healthier, and more sustainable future for communities and the environment.
             </p>
           </div>
 
