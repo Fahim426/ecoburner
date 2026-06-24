@@ -20,18 +20,18 @@ const stats = [
     source: "Ministry of Environment, India",
   },
   {
-    value: 619,
-    suffix: "T/Day",
-    unit: "Biomedical",
-    label: "Biomedical waste generated daily across Indian hospitals",
-    source: "CPCB Bio-Medical Report",
+    value: 150,
+    suffix: "K+ T/Day",
+    unit: "Daily Waste",
+    label: "Municipal solid waste generated daily across Indian cities",
+    source: "MoHUA Annual Report",
   },
   {
     value: 10,
     suffix: "Lakh+",
     unit: "Fine / Closure",
     label: "Penalty range for non-compliant waste disposal units",
-    source: "HWM Rules 2016 & BMWM Rules",
+    source: "HWM Rules 2016 & SWM Rules",
   },
 ];
 
@@ -43,9 +43,9 @@ export default function WasteCrisis() {
       id="crisis"
       style={{
         padding: "80px 0",
-        background: "#0c0c0c",
-        borderTop: "1px solid #1a1a1a",
-        borderBottom: "1px solid #1a1a1a",
+        background: "#F4F7F5",
+        borderTop: "1px solid #DDE8E3",
+        borderBottom: "1px solid #DDE8E3",
       }}
     >
       <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 5vw" }}>
@@ -60,32 +60,23 @@ export default function WasteCrisis() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              background: "rgba(200,184,74,0.08)",
-              border: "1px solid rgba(200,184,74,0.2)",
-              borderRadius: "4px",
-              padding: "6px 14px",
-              marginBottom: "20px",
-            }}>
-              <span style={{ fontSize: "clamp(0.875rem, 1.5vw, 1.2rem)", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "#c8b84a" }}>
+            <div style={{ marginBottom: "20px" }}>
+              <span className="section-label">
                 Industry Data
               </span>
             </div>
             <h2 style={{
               fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)",
               fontWeight: 800,
-              color: "white",
+              color: "#0D1F1A",
               lineHeight: 1.25,
               marginBottom: "16px",
               letterSpacing: "-0.01em",
             }}>
               India&apos;s Waste Management<br />
-              <span style={{ color: "#c8b84a" }}>Gap Is a Business Risk</span>
+              <span style={{ color: "#1A7A4A" }}>Gap Is a Business Risk</span>
             </h2>
-            <p style={{ color: "#aaa", fontSize: "1.125rem", lineHeight: 1.8, maxWidth: "420px" }}>
+            <p style={{ color: "#4A6259", fontSize: "1.125rem", lineHeight: 1.8, maxWidth: "420px" }}>
               Regulatory pressure from CPCB, KSPCB, and State Pollution Control
               Boards is intensifying. Non-compliant organisations face closures,
               fines, and reputational damage.
@@ -99,21 +90,21 @@ export default function WasteCrisis() {
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.6 }}
             style={{
-              background: "#111",
-              border: "1px solid #1e1e1e",
-              borderLeft: "3px solid #2d8a42",
+              background: "#FFFFFF",
+              border: "1px solid #DDE8E3",
+              borderLeft: "3px solid #1A7A4A",
               borderRadius: "8px",
               padding: "28px 32px",
+              boxShadow: "0 2px 12px rgba(26,122,74,0.06)",
             }}
           >
-            <p style={{ color: "#888", fontSize: "1rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "16px" }}>
+            <p style={{ color: "#0D1F1A", fontSize: "1rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "16px" }}>
               Applicable Regulations
             </p>
             {[
-              "Bio-Medical Waste Management Rules, 2016",
               "Hazardous & Other Wastes (Management) Rules, 2016",
               "Solid Waste Management Rules, 2016",
-              "Kerala State PCB Guidelines — KSPCB",
+              "State Pollution Control Board Guidelines",
             ].map((rule) => (
               <div key={rule} style={{
                 display: "flex", alignItems: "flex-start", gap: "10px",
@@ -121,9 +112,9 @@ export default function WasteCrisis() {
               }}>
                 <div style={{
                   width: "6px", height: "6px", borderRadius: "50%",
-                  background: "#2d8a42", flexShrink: 0, marginTop: "6px",
+                  background: "#1A7A4A", flexShrink: 0, marginTop: "6px",
                 }} />
-                <span style={{ color: "#aaa", fontSize: "1rem", lineHeight: 1.5 }}>{rule}</span>
+                <span style={{ color: "#4A6259", fontSize: "1rem", lineHeight: 1.5 }}>{rule}</span>
               </div>
             ))}
           </motion.div>
@@ -131,12 +122,8 @@ export default function WasteCrisis() {
 
         {/* Stats — clean data table style */}
         <div
-          className="stats-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+          className="stats-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
           ref={ref}
-          style={{
-            borderTop: "1px solid #1e1e1e",
-            borderLeft: "1px solid #1e1e1e",
-          }}
         >
           {stats.map((s, idx) => (
             <motion.div
@@ -147,13 +134,14 @@ export default function WasteCrisis() {
               transition={{ delay: idx * 0.1, duration: 0.5 }}
               style={{
                 padding: "32px 28px",
-                borderRight: "1px solid #1e1e1e",
-                borderBottom: "1px solid #1e1e1e",
-                background: "#0e0e0e",
-                transition: "background 0.3s",
+                border: "1px solid #DDE8E3",
+                borderRadius: "12px",
+                background: "#FFFFFF",
+                boxShadow: "0 2px 12px rgba(26,122,74,0.06)",
+                transition: "all 0.3s ease",
                 cursor: "default",
               }}
-              whileHover={{ backgroundColor: "#121212" }}
+              whileHover={{ translateY: -4, boxShadow: "0 8px 24px rgba(26,122,74,0.12)" }}
             >
               {/* Unit tag */}
               <div style={{
@@ -162,7 +150,7 @@ export default function WasteCrisis() {
                 fontWeight: 700,
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
-                color: "#555",
+                color: "#4A6259",
                 marginBottom: "12px",
               }}>
                 {s.unit}
@@ -172,7 +160,7 @@ export default function WasteCrisis() {
               <div style={{
                 fontSize: "2.6rem",
                 fontWeight: 900,
-                color: "white",
+                color: "#1A7A4A",
                 fontFamily: "'Bebas Neue', cursive",
                 letterSpacing: "0.03em",
                 lineHeight: 1,
@@ -192,7 +180,7 @@ export default function WasteCrisis() {
 
               {/* Label */}
               <p style={{
-                color: "#aaa",
+                color: "#4A6259",
                 fontSize: "1rem",
                 lineHeight: 1.5,
                 marginBottom: "16px",
@@ -203,7 +191,7 @@ export default function WasteCrisis() {
               {/* Source */}
               <div style={{
                 fontSize: "0.875rem",
-                color: "#888",
+                color: "#8FA89F",
                 letterSpacing: "0.05em",
               }}>
                 Source: {s.source}

@@ -5,20 +5,20 @@
   --font-sans: 'Inter', sans-serif;
   --font-display: 'Bebas Neue', cursive;
 
-  --color-bg-primary: #0a0a0a;
-  --color-bg-surface: #141414;
-  --color-bg-elevated: #1e1e1e;
+  --color-bg-primary: #FFFFFF;
+  --color-bg-surface: #F4F7F5;
+  --color-bg-elevated: #EEF6F1;
   
-  --color-green-primary: #1a5c2a;
-  --color-green-light: #2d8a42;
-  --color-green-bright: #3aaa55;
+  --color-green-primary: #1A7A4A;
+  --color-green-light: #D4EDDA;
+  --color-green-bright: #15623B;
   
   --color-gold: #8a7d3a;
   --color-gold-light: #c8b84a;
   
-  --color-text-primary: #e8e8e8;
-  --color-text-secondary: #b0b0b0;
-  --color-text-muted: #666666;
+  --color-text-primary: #0D1F1A;
+  --color-text-secondary: #4A6259;
+  --color-text-muted: #8FA89F;
 }
 
 * {
@@ -37,8 +37,8 @@ html {
 html,
 body {
   width: 100%;
-  background-color: #0a0a0a;
-  color: #e8e8e8;
+  background-color: #FFFFFF;
+  color: #0D1F1A;
 }
 
 body {
@@ -53,16 +53,16 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: #FFFFFF;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1a5c2a;
+  background: #1A7A4A;
   border-radius: 3px;
 }
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #2d8a42 0%, #c8b84a 100%);
+  background: linear-gradient(135deg, #1A7A4A 0%, #15623B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -70,11 +70,15 @@ body {
 
 /* Section label */
 .section-label {
-  font-size: 0.75rem;
+  display: inline-block;
+  background-color: #EEF6F1;
+  color: #1A7A4A;
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
-  color: #2d8a42;
 }
 
 /* Section pad */
@@ -88,7 +92,7 @@ body {
 }
 .card-hover:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(26, 92, 42, 0.2);
+  box-shadow: 0 20px 40px rgba(26, 122, 74, 0.08), 0 0 20px rgba(26, 122, 74, 0.04);
 }
 
 /* Buttons */
@@ -96,11 +100,11 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, #1a5c2a, #2d8a42);
+  background: #1A7A4A;
   color: white;
   font-weight: 600;
   padding: 0.75rem 1.75rem;
-  border-radius: 4px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -108,8 +112,8 @@ body {
   font-size: 0.9rem;
 }
 .btn-primary:hover {
-  background: linear-gradient(135deg, #2d8a42, #3aaa55);
-  box-shadow: 0 8px 25px rgba(26, 92, 42, 0.4);
+  background: #15623B;
+  box-shadow: 0 8px 25px rgba(26, 122, 74, 0.15);
   transform: translateY(-2px);
 }
 
@@ -121,7 +125,7 @@ body {
   color: white;
   font-weight: 600;
   padding: 0.75rem 1.75rem;
-  border-radius: 4px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -130,7 +134,7 @@ body {
 }
 .btn-whatsapp:hover {
   background: #1ebe59;
-  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.15);
   transform: translateY(-2px);
 }
 
@@ -139,19 +143,19 @@ body {
   align-items: center;
   gap: 0.5rem;
   background: transparent;
-  color: #e8e8e8;
+  color: #1A7A4A;
   font-weight: 600;
   padding: 0.75rem 1.75rem;
-  border-radius: 4px;
-  border: 1px solid #3a3a3a;
+  border-radius: 8px;
+  border: 1.5px solid #1A7A4A;
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
   font-size: 0.9rem;
 }
 .btn-outline:hover {
-  border-color: #2d8a42;
-  color: #2d8a42;
+  background: #1A7A4A;
+  color: white;
   transform: translateY(-2px);
 }
 
@@ -286,4 +290,38 @@ section {
     padding-top: 56px !important;
     padding-bottom: 56px !important;
   }
+}
+
+/* Hide scrollbar for horizontal containers */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none !important;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* Touch-only scroll snapping to prevent programmatic scroll stutter on desktop */
+@media (hover: none) {
+  .snap-container {
+    scroll-snap-type: x mandatory !important;
+  }
+  .snap-item {
+    scroll-snap-align: start !important;
+  }
+}
+
+/* Infinite Scrolling Logo Marquee */
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
 }

@@ -5,34 +5,9 @@ import { ArrowLeft, MessageCircle, Phone, CheckCircle2 } from "lucide-react";
 import type { Metadata } from "next";
 
 const WHATSAPP_NUMBER = "917736880801";
-const WHATSAPP_MSG = encodeURIComponent("Hi, I need a waste management solution");
+const WHATSAPP_MSG = encodeURIComponent("Hello EcoBurner Team,\n\nI visited your website and would like to know more about your waste management and incinerator solutions.\n\nPlease contact me with further details.\n\nThank you.");
 
 const productsData = {
-  "biomedical-incinerator": {
-    title: "Biomedical Waste Incinerators",
-    tag: "Healthcare",
-    image: "/images/product-biomedical.png",
-    hero: "/images/hero3.png",
-    description:
-      "ECOBURNER's biomedical waste incinerators are engineered for hospitals, clinics, diagnostic labs, and blood banks that generate infectious, sharps, pathological, and pharmaceutical waste. Compliant with Bio-Medical Waste Management Rules, 2016.",
-    specs: [
-      { label: "Primary Chamber Temp", value: "850°C – 1100°C" },
-      { label: "Secondary Chamber Temp", value: "1050°C – 1200°C" },
-      { label: "Capacity Range", value: "5 kg/hr – 200 kg/hr" },
-      { label: "Fuel", value: "Diesel / LPG / Dual" },
-      { label: "Compliance", value: "CPCB, KSPCB, BMW Rules 2016" },
-      { label: "Emission Control", value: "Wet Scrubber / Afterburner" },
-    ],
-    features: [
-      "Dual-chamber design for complete combustion",
-      "Auto-ignition and temperature control",
-      "PLC-based monitoring system",
-      "Minimal operator intervention required",
-      "Compact footprint — installs in standard hospital backyard",
-      "Service and AMC contracts available",
-    ],
-    usedBy: ["Government Hospitals", "Private Clinics", "Diagnostic Labs", "Blood Banks", "Veterinary Clinics"],
-  },
   "industrial-burner": {
     title: "Industrial Waste Burners",
     tag: "Industrial",
@@ -64,24 +39,24 @@ const productsData = {
     image: "/images/product-smallscale.png",
     hero: "/images/hero4.png",
     description:
-      "Affordable, compact waste incineration units designed for small clinics, pharmacies, rural health centers, and small businesses that need compliance-ready waste disposal without large infrastructure investment.",
+      "Affordable, compact waste incineration units designed for small businesses, retail outlets, warehouses, and institutions that need compliance-ready waste disposal without large infrastructure investment.",
     specs: [
       { label: "Capacity", value: "2 kg/hr – 25 kg/hr" },
       { label: "Operating Temperature", value: "800°C – 950°C" },
       { label: "Footprint", value: "Compact — fits in 6×4 ft space" },
       { label: "Power", value: "Single phase 230V" },
       { label: "Fuel", value: "LPG / Diesel" },
-      { label: "Compliance", value: "BMW Rules 2016 (Category-specific)" },
+      { label: "Compliance", value: "Solid Waste Management Rules" },
     ],
     features: [
       "Plug-and-play installation",
       "Easy for non-technical operators",
       "Low maintenance — minimal moving parts",
       "Affordable upfront cost",
-      "Ideal for rural health centers",
+      "Ideal for space-constrained sites",
       "Portable models available",
     ],
-    usedBy: ["Small Clinics", "Pharmacies", "Rural Health Centers", "Dental Clinics", "Nursing Homes"],
+    usedBy: ["Small Businesses", "Retail Outlets", "Warehouses", "Apartments", "Institutions"],
   },
   "biogas-system": {
     title: "Biogas Systems",
@@ -106,7 +81,7 @@ const productsData = {
       "Eligible for green energy subsidies",
       "MNRE compliant design",
     ],
-    usedBy: ["Hotels & Restaurants", "Food Processing Units", "Municipal Bodies", "Educational Institutions", "Hospitals"],
+    usedBy: ["Hotels & Restaurants", "Food Processing Units", "Municipal Bodies", "Educational Institutions", "Residential Apartments"],
   },
 };
 
@@ -133,24 +108,24 @@ export default async function SolutionDetailPage({ params }: { params: Params })
   if (!product) notFound();
 
   return (
-    <div className="bg-[#0a0a0a] min-h-screen pt-20">
+    <div className="bg-bg-primary min-h-screen pt-20">
       {/* Hero */}
       <div className="relative h-72 sm:h-96">
         <Image src={product.hero} alt={product.title} fill className="object-cover" priority />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-[#0a0a0a]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-[#0D1F1A]/40 to-bg-primary" />
         <div className="absolute inset-0 flex items-end">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 w-full">
             <Link
               href="/#solutions"
-              className="flex items-center gap-2 text-text-muted hover:text-white text-sm mb-4 transition-colors"
+              className="flex items-center gap-2 text-text-muted hover:text-text-primary text-sm mb-4 transition-colors font-medium"
             >
               <ArrowLeft size={16} />
               Back to Solutions
             </Link>
-            <span className="text-xs font-bold text-green-light bg-green-primary/20 px-2 py-0.5 rounded border border-green-primary/30 mb-3 inline-block">
+            <span className="text-xs font-bold text-green-primary bg-green-light px-2.5 py-1 rounded-full mb-3 inline-block">
               {product.tag}
             </span>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-text-primary">
               {product.title}
             </h1>
           </div>
@@ -164,17 +139,17 @@ export default async function SolutionDetailPage({ params }: { params: Params })
           <div className="lg:col-span-2 space-y-10">
             {/* Description */}
             <div>
-              <h2 className="text-2xl font-bold text-white mb-4">Overview</h2>
+              <h2 className="text-2xl font-bold text-text-primary mb-4">Overview</h2>
               <p className="text-text-secondary text-lg leading-relaxed">{product.description}</p>
             </div>
 
             {/* Features */}
             <div>
-              <h2 className="text-2xl font-bold text-white mb-4">Key Features</h2>
+              <h2 className="text-2xl font-bold text-text-primary mb-4">Key Features</h2>
               <ul className="space-y-3">
                 {product.features.map((f) => (
                   <li key={f} className="flex items-start gap-3 text-text-secondary">
-                    <CheckCircle2 size={18} className="text-green-light shrink-0 mt-0.5" />
+                    <CheckCircle2 size={18} className="text-green-primary shrink-0 mt-0.5" />
                     {f}
                   </li>
                 ))}
@@ -183,12 +158,12 @@ export default async function SolutionDetailPage({ params }: { params: Params })
 
             {/* Used By */}
             <div>
-              <h2 className="text-2xl font-bold text-white mb-4">Ideal For</h2>
+              <h2 className="text-2xl font-bold text-text-primary mb-4">Ideal For</h2>
               <div className="flex flex-wrap gap-2">
                 {product.usedBy.map((u) => (
                   <span
                     key={u}
-                    className="text-sm text-text-secondary bg-[#1a1a1a] border border-[#2a2a2a] px-3 py-1.5 rounded-full"
+                    className="text-sm text-text-secondary bg-bg-surface border border-bg-elevated px-4 py-2 rounded-full font-medium"
                   >
                     {u}
                   </span>
@@ -200,22 +175,22 @@ export default async function SolutionDetailPage({ params }: { params: Params })
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Specs */}
-            <div className="bg-[#111111] border border-[#1e1e1e] rounded-2xl p-6">
-              <h3 className="text-white font-bold text-lg mb-4">Technical Specifications</h3>
+            <div className="bg-bg-surface border border-[#DDE8E3] rounded-2xl p-6 shadow-sm">
+              <h3 className="text-text-primary font-bold text-lg mb-4">Technical Specifications</h3>
               <div className="space-y-3">
                 {product.specs.map((s) => (
-                  <div key={s.label} className="flex justify-between gap-4 text-sm py-2 border-b border-[#1a1a1a]">
-                    <span className="text-text-muted">{s.label}</span>
-                    <span className="text-white font-medium text-right">{s.value}</span>
+                  <div key={s.label} className="flex justify-between gap-4 text-sm py-2 border-b border-[#DDE8E3]">
+                    <span className="text-text-secondary">{s.label}</span>
+                    <span className="text-text-primary font-semibold text-right">{s.value}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* CTA */}
-            <div className="bg-[#0c1a0e] border border-green-primary/20 rounded-2xl p-6 space-y-4">
-              <h3 className="text-white font-bold text-lg">Get a Quote</h3>
-              <p className="text-text-muted text-sm">
+            <div className="bg-bg-elevated border border-[#DDE8E3] rounded-2xl p-6 space-y-4 shadow-sm">
+              <h3 className="text-text-primary font-bold text-lg">Get a Quote</h3>
+              <p className="text-text-secondary text-sm">
                 Tell us your requirements and we&apos;ll recommend the right configuration.
               </p>
               <a
@@ -232,7 +207,7 @@ export default async function SolutionDetailPage({ params }: { params: Params })
               </a>
               <a
                 href="tel:+917736880801"
-                className="flex items-center justify-center gap-2 text-text-muted hover:text-white text-sm transition-colors"
+                className="flex items-center justify-center gap-2 text-text-secondary hover:text-green-primary text-sm transition-colors font-medium"
               >
                 <Phone size={16} />
                 +91-77368-80801

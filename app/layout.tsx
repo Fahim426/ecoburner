@@ -7,12 +7,12 @@ import WhatsAppFloat from "@/components/ui/WhatsAppFloat";
 export const metadata: Metadata = {
   title: "ECOBURNER Waste Management Solutions | Incinerator South India",
   description:
-    "ECOBURNER provides industrial and biomedical waste management solutions across South India. High-temperature incinerators, biogas systems, and custom waste solutions for hospitals and industries.",
+    "ECOBURNER provides industrial waste management solutions across South India. High-temperature incinerators, biogas systems, and custom waste solutions for commercial complexes and industries.",
   keywords:
-    "waste management South India, incinerator South India, biomedical waste disposal India, industrial waste management, hospital waste incinerator, ECOBURNER",
+    "waste management South India, incinerator South India, industrial waste management, waste burner, ECOBURNER",
   openGraph: {
     title: "ECOBURNER Waste Management Solutions",
-    description: "Industrial and biomedical waste management solutions across South India.",
+    description: "Industrial waste management solutions across South India.",
     type: "website",
     locale: "en_IN",
   },

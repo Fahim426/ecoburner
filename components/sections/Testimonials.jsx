@@ -5,14 +5,14 @@ import Script from "next/script";
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" style={{ padding: "80px 0", background: "#0d0d0d", borderTop: "1px solid #1a1a1a" }}>
+    <section id="testimonials" style={{ padding: "80px 0", background: "#F4F7F5", borderTop: "1px solid #DDE8E3", borderBottom: "1px solid #DDE8E3" }}>
       <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 5vw" }}>
 
         {/* Header */}
         <div style={{
           display: "flex", alignItems: "flex-end", justifyContent: "space-between",
           gap: "32px", flexWrap: "wrap",
-          marginBottom: "56px", paddingBottom: "40px", borderBottom: "1px solid #1a1a1a",
+          marginBottom: "56px", paddingBottom: "40px", borderBottom: "1px solid #DDE8E3",
         }}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -20,17 +20,16 @@ export default function Testimonials() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
-              <div style={{ width: "24px", height: "2px", background: "#2d8a42" }} />
-              <span style={{ fontSize: "clamp(0.875rem, 1.5vw, 1.2rem)", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "#2d8a42" }}>
+            <div style={{ marginBottom: "16px" }}>
+              <span className="section-label">
                 Client Feedback
               </span>
             </div>
             <h2 style={{
               fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)",
-              fontWeight: 800, color: "white", lineHeight: 1.2, letterSpacing: "-0.01em",
+              fontWeight: 800, color: "#0D1F1A", lineHeight: 1.2, letterSpacing: "-0.01em",
             }}>
-              Trusted by Facilities<br />Across South India
+              Trusted by Facilities<br /><span className="gradient-text">Across South India</span>
             </h2>
           </motion.div>
         </div>

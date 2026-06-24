@@ -8,24 +8,24 @@ import {
 } from "lucide-react";
 
 const WHATSAPP_NUMBER = "917736880801";
-const WHATSAPP_MSG = encodeURIComponent("Hi, I need a waste management solution");
+const WHATSAPP_MSG = encodeURIComponent("Hello EcoBurner Team,\n\nI visited your website and would like to know more about your waste management and incinerator solutions.\n\nPlease contact me with further details.\n\nThank you.");
 
 const inputStyle: React.CSSProperties = {
   width: "100%",
-  background: "#0d0d0d",
-  border: "1px solid #2a2a2a",
+  background: "#FFFFFF",
+  border: "1px solid #DDE8E3",
   borderRadius: "8px",
   padding: "16px 18px",
-  color: "white",
+  color: "#0D1F1A",
   fontSize: "clamp(1rem, 1.2vw, 1.2rem)",
   outline: "none",
-  transition: "border-color 0.2s",
+  transition: "all 0.2s ease",
   boxSizing: "border-box",
 };
 
 const labelStyle: React.CSSProperties = {
   display: "block",
-  color: "#888",
+  color: "#4A6259",
   fontSize: "clamp(0.85rem, 1vw, 1rem)",
   fontWeight: 600,
   letterSpacing: "0.08em",
@@ -85,24 +85,25 @@ export default function ContactPage() {
 
   const focusStyle = (field: string): React.CSSProperties => ({
     ...inputStyle,
-    borderColor: focused === field ? "#2d8a42" : "#2a2a2a",
+    borderColor: focused === field ? "#1A7A4A" : "#DDE8E3",
+    boxShadow: focused === field ? "0 0 0 3px rgba(26,122,74,0.1)" : "none",
   });
 
   return (
-    <div style={{ background: "#0a0a0a", minHeight: "100vh", paddingTop: "72px" }}>
+    <div style={{ background: "#FFFFFF", minHeight: "100vh", paddingTop: "72px" }}>
 
       {/* ── HERO BANNER ── */}
       <section className="hero-section" style={{
         padding: "72px 5vw 64px",
-        background: "linear-gradient(135deg, #0c1a0e 0%, #0a0a0a 60%)",
-        borderBottom: "1px solid #1a1a1a",
+        background: "linear-gradient(135deg, #EEF6F1 0%, #FFFFFF 100%)",
+        borderBottom: "1px solid #DDE8E3",
         position: "relative",
         overflow: "hidden",
       }}>
         {/* radial glow */}
         <div style={{
           position: "absolute", inset: 0,
-          background: "radial-gradient(ellipse 60% 80% at 80% 50%, rgba(26,92,42,0.08) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse 60% 80% at 80% 50%, rgba(26,122,74,0.04) 0%, transparent 70%)",
           pointerEvents: "none",
         }} />
         <div style={{ position: "relative", width: "100%" }}>
@@ -111,47 +112,26 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px" }}>
-              <div style={{ width: "32px", height: "2px", background: "#2d8a42" }} />
+            <div style={{ marginBottom: "20px" }}>
               <span className="section-label">Get in Touch</span>
             </div>
             <h1 style={{
               fontSize: "clamp(2.2rem, 5vw, 3.8rem)",
               fontWeight: 900,
-              color: "white",
+              color: "#0D1F1A",
               lineHeight: 1.1,
               marginBottom: "20px",
             }}>
               Request a <span className="gradient-text">Free Consultation</span>
             </h1>
-            <p style={{ color: "#888", fontSize: "clamp(1.2rem, 1.8vw, 1.6rem)", lineHeight: 1.8, maxWidth: "700px" }}>
+            <p style={{ color: "#4A6259", fontSize: "clamp(1.2rem, 1.8vw, 1.6rem)", lineHeight: 1.8, maxWidth: "700px" }}>
               Tell us your waste type, volume, and location. Our team will respond
-              within <strong style={{ color: "#b0b0b0" }}>24 hours</strong> with a
+              within <strong style={{ color: "#0D1F1A" }}>24 hours</strong> with a
               tailored recommendation and quote — no obligation.
             </p>
           </motion.div>
         </div>
       </section>
-
-      {/* ── TRUST STRIP ── */}
-      <div style={{ borderBottom: "1px solid #1a1a1a", background: "#0d0d0d" }}>
-        <div className="trust-strip" style={{
-          padding: "24px 5vw",
-          display: "flex", flexWrap: "wrap", gap: "4vw", alignItems: "center",
-          justifyContent: "flex-start", width: "100%", maxWidth: "100%"
-        }}>
-          {[
-            { icon: Clock, text: "Response within 24 hours" },
-            { icon: Phone, text: "Free site consultation" },
-            { icon: CheckCircle2, text: "No pushy sales calls" },
-          ].map(({ icon: Icon, text }) => (
-            <div key={text} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-              <Icon size={18} style={{ color: "#2d8a42" }} />
-              <span style={{ color: "#888", fontSize: "clamp(0.95rem, 1.2vw, 1.2rem)" }}>{text}</span>
-            </div>
-          ))}
-        </div>
-      </div>
 
       {/* ── MAIN CONTENT ── */}
       <div className="main-content" style={{ padding: "72px 5vw", width: "100%" }}>
@@ -168,24 +148,24 @@ export default function ContactPage() {
             {submitted ? (
               /* Success state */
               <div style={{
-                background: "#0d0d0d",
-                border: "1px solid rgba(45,138,66,0.3)",
+                background: "#EEF6F1",
+                border: "1px solid #1A7A4A",
                 borderRadius: "16px",
                 padding: "64px 40px",
                 textAlign: "center",
               }}>
                 <div style={{
                   width: "72px", height: "72px", borderRadius: "50%",
-                  background: "rgba(26,92,42,0.2)",
+                  background: "rgba(26,122,74,0.15)",
                   display: "flex", alignItems: "center", justifyContent: "center",
                   margin: "0 auto 24px",
                 }}>
-                  <CheckCircle2 size={36} style={{ color: "#2d8a42" }} />
+                  <CheckCircle2 size={36} style={{ color: "#1A7A4A" }} />
                 </div>
-                <h2 style={{ color: "white", fontSize: "clamp(1.6rem, 2.5vw, 2.2rem)", fontWeight: 800, marginBottom: "12px" }}>
+                <h2 style={{ color: "#0D1F1A", fontSize: "clamp(1.6rem, 2.5vw, 2.2rem)", fontWeight: 800, marginBottom: "12px" }}>
                   Enquiry Received
                 </h2>
-                <p style={{ color: "#888", fontSize: "clamp(0.95rem, 1.2vw, 1.2rem)", lineHeight: 1.7, marginBottom: "32px" }}>
+                <p style={{ color: "#4A6259", fontSize: "clamp(0.95rem, 1.2vw, 1.2rem)", lineHeight: 1.7, marginBottom: "32px" }}>
                   Thank you. Our team will review your requirements and get back to you
                   within 24 hours. For urgent inquiries, reach us directly on WhatsApp.
                 </p>
@@ -203,20 +183,20 @@ export default function ContactPage() {
             ) : (
               <form onSubmit={handleSubmit}>
                 <h2 style={{
-                  color: "white", fontSize: "clamp(1.3rem, 2.5vw, 1.8rem)", fontWeight: 800,
+                  color: "#0D1F1A", fontSize: "clamp(1.3rem, 2.5vw, 1.8rem)", fontWeight: 800,
                   marginBottom: "8px",
                 }}>
                   Send Us a Message
                 </h2>
-                <p style={{ color: "#555", fontSize: "clamp(0.85rem, 1vw, 1rem)", marginBottom: "36px" }}>
-                  All fields marked <span style={{ color: "#f87171" }}>*</span> are required
+                <p style={{ color: "#8FA89F", fontSize: "clamp(0.85rem, 1vw, 1rem)", marginBottom: "36px" }}>
+                  All fields marked <span style={{ color: "#e53e3e" }}>*</span> are required
                 </p>
 
                 {/* Row 1: Name + Company */}
                 <div className="form-row grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
                   <div>
                     <label style={labelStyle}>
-                      Full Name <span style={{ color: "#f87171" }}>*</span>
+                      Full Name <span style={{ color: "#e53e3e" }}>*</span>
                     </label>
                     <input
                       id="contact-name"
@@ -232,7 +212,7 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label style={labelStyle}>Organisation / Company</label>
+                    <label style={labelStyle}>Commercial/Residential</label>
                     <input
                       id="contact-company"
                       type="text"
@@ -241,7 +221,7 @@ export default function ContactPage() {
                       onChange={handleChange}
                       onFocus={() => setFocused("company")}
                       onBlur={() => setFocused(null)}
-                      placeholder="Hospital, factory, etc."
+                      placeholder="Apartment, hotel, industry, etc."
                       style={focusStyle("company")}
                     />
                   </div>
@@ -251,7 +231,7 @@ export default function ContactPage() {
                 <div className="form-row grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
                   <div>
                     <label style={labelStyle}>
-                      Phone <span style={{ color: "#f87171" }}>*</span>
+                      Phone <span style={{ color: "#e53e3e" }}>*</span>
                     </label>
                     <input
                       id="contact-phone"
@@ -285,7 +265,7 @@ export default function ContactPage() {
                 {/* Product of Interest */}
                 <div style={{ marginBottom: "20px" }}>
                   <label style={labelStyle}>
-                    Product of Interest <span style={{ color: "#f87171" }}>*</span>
+                    Product of Interest <span style={{ color: "#e53e3e" }}>*</span>
                   </label>
                   <select
                     id="contact-product"
@@ -298,10 +278,14 @@ export default function ContactPage() {
                     style={{ ...focusStyle("product"), cursor: "pointer" }}
                   >
                     <option value="">Select a product...</option>
-                    <option>SS Incinerator Plant</option>
+                    <option>Stainless Steel Incinerator Plant</option>
                     <option>FRP Biogas Plant</option>
                     <option>Eco-Bin – Food Waste Compost Machine</option>
                     <option>Napkin Burning Incinerator</option>
+                    <option>Oil Grease Trap</option>
+                    <option>STP Plant</option>
+                    <option>Sanitary Pad Disposal</option>
+                    <option>Food Waste Disposal</option>
                     <option>Not sure – need advice</option>
                   </select>
                 </div>
@@ -371,13 +355,14 @@ export default function ContactPage() {
           >
             {/* Contact methods */}
             <div style={{
-              background: "#0d0d0d",
-              border: "1px solid #1e1e1e",
+              background: "#FFFFFF",
+              border: "1px solid #DDE8E3",
               borderRadius: "16px",
               overflow: "hidden",
+              boxShadow: "0 4px 16px rgba(26,122,74,0.03)",
             }}>
-              <div style={{ padding: "24px 24px 20px", borderBottom: "1px solid #1a1a1a" }}>
-                <h3 style={{ color: "white", fontWeight: 700, fontSize: "clamp(1.1rem, 1.5vw, 1.4rem)" }}>
+              <div style={{ padding: "24px 24px 20px", borderBottom: "1px solid #DDE8E3" }}>
+                <h3 style={{ color: "#0D1F1A", fontWeight: 700, fontSize: "clamp(1.1rem, 1.5vw, 1.4rem)" }}>
                   Reach Us Directly
                 </h3>
               </div>
@@ -387,33 +372,33 @@ export default function ContactPage() {
                     icon: Phone,
                     label: "Call Us",
                     value: "+91-77368-80801",
-                    sub: "Mon – Sat, 9 AM – 6 PM",
+                    sub: "24 * 7 assistance",
                     href: "tel:+917736880801",
-                    color: "#60a5fa",
+                    color: "#1A7A4A",
                   },
                   {
                     icon: MessageCircle,
                     label: "WhatsApp",
                     value: "Chat Instantly",
-                    sub: "Fastest response guaranteed",
+                    sub: "Fastest response",
                     href: `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`,
-                    color: "#4ade80",
+                    color: "#25D366",
                   },
                   {
                     icon: Mail,
                     label: "Email",
-                    value: "ecoburnerinc@gmail.com",
+                    value: "info@ecoburner.in",
                     sub: "Reply within 24 hours",
-                    href: "mailto:ecoburnerinc@gmail.com",
-                    color: "#c084fc",
+                    href: "mailto:info@ecoburner.in",
+                    color: "#1A7A4A",
                   },
                   {
                     icon: MapPin,
                     label: "Location",
-                    value: "Kasaragod, Kerala",
-                    sub: "Serving South India",
-                    href: "https://maps.google.com/?q=Kasaragod,Kerala,India",
-                    color: "#fb923c",
+                    value: "South India",
+                    sub: "Serving Across South India",
+                    href: "https://maps.google.com/?q=Kerala,India",
+                    color: "#1A7A4A",
                   },
                 ].map((c) => {
                   const Icon = c.icon;
@@ -429,26 +414,26 @@ export default function ContactPage() {
                         gap: "16px",
                         padding: "16px 24px",
                         textDecoration: "none",
-                        borderBottom: "1px solid #141414",
+                        borderBottom: "1px solid #F4F7F5",
                         transition: "background 0.2s",
                       }}
-                      onMouseEnter={(e) => (e.currentTarget.style.background = "#111")}
+                      onMouseEnter={(e) => (e.currentTarget.style.background = "#F4F7F5")}
                       onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
                     >
                       <div style={{
                         width: "40px", height: "40px", borderRadius: "10px",
-                        background: "rgba(255,255,255,0.04)",
+                        background: c.label === "WhatsApp" ? "rgba(37,211,102,0.12)" : "rgba(26,122,74,0.08)",
                         display: "flex", alignItems: "center", justifyContent: "center",
                         flexShrink: 0,
                       }}>
                         <Icon size={18} style={{ color: c.color }} />
                       </div>
                       <div style={{ flex: 1, minWidth: 0 }}>
-                        <div style={{ color: "#555", fontSize: "clamp(0.85rem, 1vw, 1rem)", marginBottom: "4px" }}>{c.label}</div>
-                        <div style={{ color: "white", fontWeight: 600, fontSize: "clamp(1rem, 1.2vw, 1.2rem)", marginBottom: "2px" }}>{c.value}</div>
-                        <div style={{ color: "#444", fontSize: "clamp(0.85rem, 1vw, 1rem)" }}>{c.sub}</div>
+                        <div style={{ color: "#8FA89F", fontSize: "clamp(0.85rem, 1vw, 1rem)", marginBottom: "4px" }}>{c.label}</div>
+                        <div style={{ color: "#0D1F1A", fontWeight: 600, fontSize: "clamp(1rem, 1.2vw, 1.2rem)", marginBottom: "2px" }}>{c.value}</div>
+                        <div style={{ color: "#4A6259", fontSize: "clamp(0.85rem, 1vw, 1rem)" }}>{c.sub}</div>
                       </div>
-                      <ArrowRight size={14} style={{ color: "#333", flexShrink: 0 }} />
+                      <ArrowRight size={14} style={{ color: "#8FA89F", flexShrink: 0 }} />
                     </a>
                   );
                 })}
@@ -459,16 +444,16 @@ export default function ContactPage() {
             <div style={{
               borderRadius: "16px",
               overflow: "hidden",
-              border: "1px solid #1e1e1e",
+              border: "1px solid #DDE8E3",
               height: "220px",
-              background: "#111",
+              background: "#F4F7F5",
             }}>
               <iframe
-                title="ECOBURNER Location - Kasaragod, Kerala"
+                title="ECOBURNER Location - South India"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62456.8!2d74.9869!3d12.4996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba4d30bfb96d431%3A0x7e4a1e9c2b0aee6b!2sKasaragod%2C%20Kerala!5e0!3m2!1sen!2sin!4v1"
                 width="100%"
                 height="100%"
-                style={{ border: 0, filter: "invert(90%) hue-rotate(180deg)" }}
+                style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -501,7 +486,7 @@ export default function ContactPage() {
 
       <style>{`
         @keyframes spin { to { transform: rotate(360deg); } }
-        input::placeholder, textarea::placeholder, select { color: #444; }
+        input::placeholder, textarea::placeholder, select { color: #8FA89F; }
         
         @media (max-width: 768px) {
           .contact-grid { 

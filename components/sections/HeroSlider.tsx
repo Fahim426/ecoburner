@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -10,38 +11,38 @@ const slides = [
   {
     id: 1,
     image: "/images/1.png",
-    label: "Eco-Burner Facility",
+    label: "ECO-FRIENDLY INCINERATION",
     headline: "Industrial Waste Solutions",
-    headlineAccent: "Engineered for Scale",
+    headlineAccent: "Engineered for South India",
     subtext:
-      "State-of-the-art waste management systems designed for hospitals, factories, and municipalities.",
+      "State-of-the-art waste management systems designed for apartments, factories, and commercial facilities.",
   },
   {
     id: 2,
     image: "/images/2.png",
-    label: "Advanced Biogas Plants",
+    label: "WASTE-TO-ENERGY TECHNOLOGY",
     headline: "Convert Organic Waste into",
-    headlineAccent: "Clean Renewable Energy",
+    headlineAccent: "Free Renewable Power",
     subtext:
-      "High-efficiency digester systems that turn food and organic waste into usable biogas — reducing disposal costs.",
+      "High-efficiency biogas systems that turn organic waste into clean, usable fuel — slashing your operational costs.",
   },
   {
     id: 3,
     image: "/images/3.png",
-    label: "Automated Control Systems",
-    headline: "Smart Waste Processing",
+    label: "SMART DIGITAL CONTROLS",
+    headline: "Fully Automated Processing",
     headlineAccent: "At Your Fingertips",
     subtext:
-      "Fully automated, easy-to-operate processing plants ensuring safe, compliant, and reliable waste disposal.",
+      "Advanced control panels ensuring 100% compliance, effortless operation, and odor-free processing.",
   },
   {
     id: 4,
     image: "/images/4.png",
-    label: "SS Incinerator Plant",
-    headline: "Safe, Hygienic Disposal of",
-    headlineAccent: "Industrial & Bio Waste",
+    label: "STAINLESS STEEL INCINERATORS",
+    headline: "Safe, Complete Disposal of",
+    headlineAccent: "Solid & Industrial Waste",
     subtext:
-      "Heavy-duty stainless steel incinerators engineered to eliminate biohazard risks safely and efficiently.",
+      "Heavy-duty incinerators engineered to eliminate high-volume waste challenges safely, cleanly, and legally.",
   },
 ];
 
@@ -67,16 +68,16 @@ export default function HeroSlider() {
         height: "100vh",
         minHeight: "600px",
         overflow: "hidden",
-        backgroundColor: "#0a0a0a",
+        backgroundColor: "#FFFFFF",
       }}
     >
-      <AnimatePresence mode="wait" initial={false}>
+      <AnimatePresence initial={false}>
         <motion.div
           key={slides[current].id}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1.2, ease: "easeInOut" }}
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.97 }}
+          transition={{ duration: 1.0, ease: "easeInOut" }}
           style={{ position: "absolute", inset: 0 }}
         >
           {/* Background image */}
@@ -90,19 +91,12 @@ export default function HeroSlider() {
               priority={current === 0}
             />
           </div>
-          {/* Overlays */}
+          {/* Overlays: White B2B horizontal gradient overlay */}
           <div
             style={{
               position: "absolute",
               inset: 0,
-              background: "linear-gradient(90deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.72) 45%, rgba(0,0,0,0.15) 100%)",
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              background: "linear-gradient(180deg, rgba(0,0,0,0.4) 0%, transparent 30%, rgba(0,0,0,0.5) 100%)",
+              background: "linear-gradient(to right, rgba(255,255,255,0.92) 40%, rgba(255,255,255,0.6) 65%, rgba(255,255,255,0.0) 100%)",
             }}
           />
 
@@ -113,7 +107,7 @@ export default function HeroSlider() {
               inset: 0,
               display: "flex",
               alignItems: "center",
-              paddingTop: "72px", // offset fixed header
+              paddingTop: "90px", // offset fixed header
             }}
           >
             <div
@@ -132,8 +126,10 @@ export default function HeroSlider() {
                   transition={{ delay: 0.2, duration: 0.5 }}
                   style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "24px" }}
                 >
-                  <div style={{ width: "32px", height: "2px", background: "#2d8a42" }} />
-                  <span className="section-label">{slides[current].label}</span>
+                  <div style={{ width: "32px", height: "2px", background: "#1A7A4A" }} />
+                  <span className="section-label" style={{ background: "#D4EDDA", color: "#1A7A4A" }}>
+                    {slides[current].label}
+                  </span>
                 </motion.div>
 
                 {/* Headline */}
@@ -144,7 +140,7 @@ export default function HeroSlider() {
                   style={{
                     fontSize: "clamp(2.2rem, 5vw, 4.5rem)",
                     fontWeight: 900,
-                    color: "white",
+                    color: "#0D1F1A",
                     lineHeight: 1.1,
                     marginBottom: "8px",
                   }}
@@ -160,7 +156,7 @@ export default function HeroSlider() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5, duration: 0.5 }}
                   style={{
-                    color: "#b0b0b0",
+                    color: "#4A6259",
                     fontSize: "1.125rem",
                     lineHeight: 1.7,
                     maxWidth: "520px",
@@ -171,6 +167,39 @@ export default function HeroSlider() {
                   {slides[current].subtext}
                 </motion.p>
 
+                {/* Primary CTA */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.65, duration: 0.5 }}
+                  style={{ marginBottom: "32px" }}
+                >
+                  <Link
+                    href="/contact"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      background: "#1A7A4A",
+                      color: "white",
+                      fontWeight: 600,
+                      padding: "14px 32px",
+                      borderRadius: "8px",
+                      textDecoration: "none",
+                      transition: "all 0.2s ease",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = "#15623B";
+                      e.currentTarget.style.transform = "translateY(-2px)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = "#1A7A4A";
+                      e.currentTarget.style.transform = "none";
+                    }}
+                  >
+                    Request Consultation
+                  </Link>
+                </motion.div>
+
                 {/* Scroll indicator */}
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
@@ -180,9 +209,9 @@ export default function HeroSlider() {
                 >
                   <div style={{
                     width: "1px", height: "40px",
-                    background: "linear-gradient(to bottom, rgba(45,138,66,0.8), transparent)",
+                    background: "linear-gradient(to bottom, #1A7A4A, transparent)",
                   }} />
-                  <span style={{ color: "#555", fontSize: "0.875rem", letterSpacing: "0.15em", textTransform: "uppercase" }}>
+                  <span style={{ color: "#4A6259", fontSize: "0.875rem", letterSpacing: "0.15em", textTransform: "uppercase" }}>
                     Scroll to explore
                   </span>
                 </motion.div>
@@ -216,7 +245,7 @@ export default function HeroSlider() {
               cursor: "pointer",
               transition: "all 0.4s ease",
               width: idx === current ? "32px" : "8px",
-              background: idx === current ? "#2d8a42" : "rgba(255,255,255,0.3)",
+              background: idx === current ? "#1A7A4A" : "rgba(13,31,26,0.2)",
             }}
           />
         ))}
@@ -233,13 +262,22 @@ export default function HeroSlider() {
           zIndex: 10,
           padding: "10px",
           borderRadius: "50%",
-          background: "rgba(0,0,0,0.5)",
-          border: "1px solid rgba(255,255,255,0.1)",
-          color: "white",
+          background: "rgba(255, 255, 255, 0.9)",
+          border: "1px solid #DDE8E3",
+          color: "#0D1F1A",
           cursor: "pointer",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          transition: "all 0.2s ease",
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.borderColor = "#1A7A4A";
+          e.currentTarget.style.color = "#1A7A4A";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.borderColor = "#DDE8E3";
+          e.currentTarget.style.color = "#0D1F1A";
         }}
       >
         <ChevronLeft size={20} />
@@ -254,13 +292,22 @@ export default function HeroSlider() {
           zIndex: 10,
           padding: "10px",
           borderRadius: "50%",
-          background: "rgba(0,0,0,0.5)",
-          border: "1px solid rgba(255,255,255,0.1)",
-          color: "white",
+          background: "rgba(255, 255, 255, 0.9)",
+          border: "1px solid #DDE8E3",
+          color: "#0D1F1A",
           cursor: "pointer",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          transition: "all 0.2s ease",
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.borderColor = "#1A7A4A";
+          e.currentTarget.style.color = "#1A7A4A";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.borderColor = "#DDE8E3";
+          e.currentTarget.style.color = "#0D1F1A";
         }}
       >
         <ChevronRight size={20} />

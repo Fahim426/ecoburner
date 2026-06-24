@@ -1,18 +1,19 @@
 import HeroSlider from "@/components/sections/HeroSlider";
 import WasteCrisis from "@/components/sections/WasteCrisis";
-import ComplianceBenefits from "@/components/sections/ComplianceBenefits";
+import ProblemsWeSolve from "@/components/sections/ProblemsWeSolve";
 import Products from "@/components/sections/Products";
 import WhyEcoburner from "@/components/sections/WhyEcoburner";
+import TrustedBy from "@/components/sections/TrustedBy";
 import Testimonials from "@/components/sections/Testimonials";
 import FinalCTA from "@/components/sections/FinalCTA";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "ECOBURNER | Industrial & Biomedical Waste Management Solutions South India",
+  title: "ECOBURNER | Industrial Waste Management Solutions South India",
   description:
-    "ECOBURNER delivers certified industrial and biomedical waste incinerators Across South India. Compliant with CPCB & KSPCB regulations. Hospitals, factories, clinics served.",
+    "ECOBURNER delivers certified industrial waste incinerators Across South India. Compliant with CPCB & KSPCB regulations. Factories, complexes, and clinics served.",
   keywords:
-    "waste management South India, incinerator South India, biomedical waste disposal India, industrial waste South India, hospital waste management, ECOBURNER Kasaragod",
+    "waste management South India, incinerator South India, industrial waste South India, general waste disposal, ECOBURNER South India",
 };
 
 export default function HomePage() {
@@ -20,9 +21,10 @@ export default function HomePage() {
     <>
       <HeroSlider />
       <WasteCrisis />
-      <ComplianceBenefits />
+      <ProblemsWeSolve />
       <Products />
       <WhyEcoburner />
+      <TrustedBy />
       <Testimonials />
       <FinalCTA />
     </>
