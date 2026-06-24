@@ -81,8 +81,12 @@ export default function HeroSlider() {
           position: relative;
           width: 100%;
           height: calc(100vw * 2 / 3); /* Perfect 3:2 aspect ratio on mobile (no cropping) */
-          background-color: #F4F7F5;
+          background-color: #FFFFFF;
           overflow: hidden;
+        }
+        .hero-slide-image {
+          object-fit: contain;
+          object-position: center;
         }
         .hero-gradient-overlay {
           display: none;
@@ -128,11 +132,15 @@ export default function HeroSlider() {
             width: 100%;
             height: 100%;
           }
+          .hero-slide-image {
+            object-fit: contain;
+            object-position: right center;
+          }
           .hero-gradient-overlay {
             display: block;
             position: absolute;
             inset: 0;
-            background: linear-gradient(to right, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.75) 45%, rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 40%, rgba(255, 255, 255, 0) 100%);
             z-index: 1;
             pointer-events: none;
           }
@@ -192,7 +200,7 @@ export default function HeroSlider() {
                 alt={slides[current].headline}
                 fill
                 sizes="100vw"
-                style={{ objectFit: "cover" }}
+                className="hero-slide-image"
                 priority
               />
             </motion.div>
