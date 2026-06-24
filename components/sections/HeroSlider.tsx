@@ -66,7 +66,8 @@ export default function HeroSlider() {
         .hero-section {
           position: relative;
           width: 100%;
-          height: auto;
+          height: calc(100vh - 90px);
+          min-height: 550px;
           overflow: hidden;
           background-color: #FFFFFF;
           border-bottom: 1px solid #DDE8E3;
@@ -75,110 +76,81 @@ export default function HeroSlider() {
         .hero-container {
           position: relative;
           width: 100%;
-          height: auto;
+          height: 100%;
         }
         .hero-image-wrapper {
-          position: relative;
+          position: absolute;
+          inset: 0;
           width: 100%;
-          height: calc(100vw * 2 / 3); /* Perfect 3:2 aspect ratio on mobile (no cropping) */
+          height: 100%;
           background-color: #FFFFFF;
           overflow: hidden;
         }
         .hero-slide-image {
-          object-fit: contain;
+          object-fit: cover;
           object-position: center;
         }
         .hero-gradient-overlay {
-          display: none;
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.85) 60%, rgba(255, 255, 255, 0.95) 100%);
+          z-index: 1;
+          pointer-events: none;
         }
         .hero-content-wrapper {
-          position: relative;
+          position: absolute;
+          inset: 0;
           width: 100%;
-          padding: 32px 5vw 48px;
-          background: #FFFFFF;
+          height: 100%;
+          padding: 0 5vw;
+          background: transparent;
+          display: flex;
+          align-items: center;
+          z-index: 10;
         }
         .hero-content-inner {
           width: 100%;
           margin: 0 auto;
           max-width: 480px;
+          padding-bottom: 60px; /* Ensure space for bottom dots */
         }
         .hero-nav-row {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding-top: 20px;
-          border-top: 1px solid #EEF6F1;
-          margin-top: 20px;
+          display: block;
         }
         .hero-indicators {
+          position: absolute;
+          bottom: 32px;
+          left: 50%;
+          transform: translateX(-50%);
           display: flex;
           gap: 8px;
+          z-index: 20;
         }
         .hero-arrows {
+          position: absolute;
+          bottom: 24px;
+          right: 5vw;
           display: flex;
           gap: 8px;
+          z-index: 20;
         }
         @media (min-width: 768px) {
           .hero-section {
-            height: calc(100vh - 90px);
             min-height: 600px;
           }
-          .hero-container {
-            height: 100%;
-          }
-          .hero-image-wrapper {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-          }
-          .hero-slide-image {
-            object-fit: contain;
-            object-position: right center;
-          }
           .hero-gradient-overlay {
-            display: block;
-            position: absolute;
-            inset: 0;
             background: linear-gradient(to right, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 40%, rgba(255, 255, 255, 0) 100%);
-            z-index: 1;
-            pointer-events: none;
-          }
-          .hero-content-wrapper {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            padding: 0 5vw;
-            background: transparent;
-            display: flex;
-            align-items: center;
-            z-index: 10;
           }
           .hero-content-inner {
             margin-left: 0;
             margin-right: auto;
             max-width: 540px;
+            padding-bottom: 0;
           }
-          .hero-nav-row {
-            display: block;
-            border-top: none;
-            padding-top: 0;
-            margin-top: 0;
-          }
-          .hero-indicators {
-            position: absolute;
-            bottom: 32px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 20;
-          }
+        }
+        @media (max-width: 480px) {
           .hero-arrows {
-            position: absolute;
-            bottom: 24px;
-            right: 5vw;
-            z-index: 20;
+            display: none; /* Hide navigation arrows on small mobile screens to keep layout clean */
           }
         }
       `}} />
@@ -207,7 +179,7 @@ export default function HeroSlider() {
           </AnimatePresence>
         </div>
 
-        {/* Soft left-to-right gradient overlay for text readability on desktop */}
+        {/* Soft gradient overlay for text readability */}
         <div className="hero-gradient-overlay" />
 
         {/* Content Wrapper */}
