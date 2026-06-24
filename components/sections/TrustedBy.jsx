@@ -9,7 +9,7 @@ const logos = [
   { src: "/images/logo-6.jpeg", alt: "City Gold", height: "150px" },
   { src: "/images/logo-7.jpeg", alt: "Aramana Hospital", height: "140px" },
   { src: "/images/logo-8.png", alt: "Wintouch Academy", height: "130px" },
-  { src: "/images/logo-9.jpg", alt: "The Global Public School", height: "130px" },
+  { src: "/images/logo-9.png", alt: "The Global Public School", height: "130px" },
 ];
 
 export default function TrustedBy() {
