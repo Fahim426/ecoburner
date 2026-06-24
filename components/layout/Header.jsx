@@ -105,8 +105,8 @@ export default function Header() {
                 display: "flex",
                 alignItems: "center",
                 gap: "6px",
-                border: isTransparent && isDarkHeroPage ? "1.5px solid #FFFFFF" : "1.5px solid #1A7A4A",
-                color: isTransparent && isDarkHeroPage ? "#FFFFFF" : "#1A7A4A",
+                border: isTransparent && isDarkHeroPage ? "1.5px solid #FFFFFF" : "1.5px solid #0D1F1A",
+                color: isTransparent && isDarkHeroPage ? "#FFFFFF" : "#0D1F1A",
                 background: "transparent",
                 borderRadius: "6px",
                 padding: "8px 16px",
@@ -116,12 +116,12 @@ export default function Header() {
                 transition: "all 0.2s ease",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = isTransparent && isDarkHeroPage ? "#FFFFFF" : "#1A7A4A";
+                e.currentTarget.style.background = isTransparent && isDarkHeroPage ? "#FFFFFF" : "#0D1F1A";
                 e.currentTarget.style.color = isTransparent && isDarkHeroPage ? "#0D1F1A" : "#fff";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "transparent";
-                e.currentTarget.style.color = isTransparent && isDarkHeroPage ? "#FFFFFF" : "#1A7A4A";
+                e.currentTarget.style.color = isTransparent && isDarkHeroPage ? "#FFFFFF" : "#0D1F1A";
               }}
             >
               <Download size={13} />
@@ -132,11 +132,11 @@ export default function Header() {
               href="tel:+917736880801"
               style={{
                 display: "flex", alignItems: "center", gap: "6px",
-                color: isTransparent && isDarkHeroPage ? "#FFFFFF" : "#1A7A4A", textDecoration: "none", fontSize: "1.1rem", fontWeight: 600,
+                color: isTransparent && isDarkHeroPage ? "#FFFFFF" : "#0D1F1A", textDecoration: "none", fontSize: "1.1rem", fontWeight: 600,
                 transition: "color 0.2s",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#15623B")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = isTransparent && isDarkHeroPage ? "#FFFFFF" : "#1A7A4A")}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "#1A7A4A")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = isTransparent && isDarkHeroPage ? "#FFFFFF" : "#0D1F1A")}
             >
               <Phone size={13} />
               +91-77368-80801
@@ -198,7 +198,7 @@ export default function Header() {
               alignItems: "center",
               gap: "8px",
               padding: "12px 0",
-              color: "#1A7A4A",
+              color: "#0D1F1A",
               textDecoration: "none",
               fontSize: "1rem",
               fontWeight: 600,
@@ -216,7 +216,7 @@ export default function Header() {
               alignItems: "center",
               gap: "8px",
               padding: "12px 0",
-              color: "#1A7A4A",
+              color: "#0D1F1A",
               textDecoration: "none",
               fontSize: "1rem",
               fontWeight: 500,
