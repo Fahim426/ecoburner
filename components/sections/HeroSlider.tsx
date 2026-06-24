@@ -70,17 +70,17 @@ export default function HeroSlider() {
           overflow: hidden;
           background-color: #FFFFFF;
           border-bottom: 1px solid #DDE8E3;
+          margin-top: 90px; /* Starts exactly below the header section on all screens */
         }
         .hero-container {
-          display: flex;
-          flex-direction: column;
+          position: relative;
           width: 100%;
-          margin-top: 90px; /* Offset header on mobile */
+          height: auto;
         }
         .hero-image-wrapper {
           position: relative;
           width: 100%;
-          height: calc(100vw * 2 / 3); /* Perfect 3:2 aspect ratio on mobile (no cropping) */
+          height: calc(100vw * 2 / 3); /* Perfect 3:2 aspect ratio on mobile */
           background-color: #F4F7F5;
           overflow: hidden;
         }
@@ -89,35 +89,40 @@ export default function HeroSlider() {
           width: 100%;
           padding: 32px 5vw 48px;
           background: #FFFFFF;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
         }
         @media (min-width: 768px) {
           .hero-section {
-            height: 100vh;
+            height: calc(100vh - 90px);
             min-height: 600px;
           }
           .hero-container {
-            flex-direction: row-reverse; /* Image on right, text on left */
             height: 100%;
-            margin-top: 0;
           }
           .hero-image-wrapper {
-            width: 58%;
+            position: absolute;
+            inset: 0;
+            width: 100%;
             height: 100%;
           }
           .hero-content-wrapper {
-            width: 42%;
-            height: 100%;
-            padding: 90px 4vw 0; /* Offset header on desktop */
-            border-right: 1px solid #DDE8E3;
+            position: absolute;
+            left: 5vw;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 480px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border: 1px solid #DDE8E3;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(13,31,26,0.06);
+            z-index: 10;
           }
         }
       `}} />
 
       <div className="hero-container">
-        {/* Image Side (with crossfade) */}
+        {/* Full-width Image Slider */}
         <div className="hero-image-wrapper">
           <AnimatePresence initial={false}>
             <motion.div
@@ -132,7 +137,7 @@ export default function HeroSlider() {
                 src={slides[current].image}
                 alt={slides[current].headline}
                 fill
-                sizes="(min-width: 768px) 58vw, 100vw"
+                sizes="100vw"
                 style={{ objectFit: "cover" }}
                 priority
               />
@@ -140,9 +145,9 @@ export default function HeroSlider() {
           </AnimatePresence>
         </div>
 
-        {/* Content Side (Static container with clean text animations) */}
+        {/* Content Overlay Card */}
         <div className="hero-content-wrapper">
-          <div style={{ maxWidth: "480px", margin: "0 auto", width: "100%" }}>
+          <div style={{ width: "100%" }}>
             
             {/* Label */}
             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
