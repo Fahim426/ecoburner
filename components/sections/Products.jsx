@@ -24,12 +24,7 @@ const products = [
     subtitle: "Food Waste Compost Machine",
     images: ["/images/product-ecobin.jpg", "/images/eco-2.jpeg"],
   },
-  {
-    slug: "napkin-burning-incinerator",
-    title: "Napkin Burning Incinerator",
-    subtitle: "Sanitary Waste Disposal",
-    images: ["/images/product-napkin.jpg", "/images/napkin-2.jpg"],
-  },
+
   {
     slug: "oil-grease-trap",
     title: "Oil Grease Trap",

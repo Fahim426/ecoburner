@@ -22,12 +22,7 @@ const installations = [
     location: "South India",
     type: "Composting",
   },
-  {
-    image: "/images/product-napkin.jpg",
-    title: "Napkin Burning Incinerator",
-    location: "South India",
-    type: "Healthcare",
-  },
+
 ];
 
 export default function ProjectShowcase() {

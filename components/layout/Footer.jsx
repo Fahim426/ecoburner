@@ -136,7 +136,7 @@ export default function Footer() {
                 { label: "Stainless Steel Incinerator Plant", href: "/#products" },
                 { label: "FRP Biogas Plant", href: "/#products" },
                 { label: "Eco-Bin Compost Machine", href: "/#products" },
-                { label: "Napkin Burning Incinerator", href: "/#products" },
+
                 { label: "Oil Grease Trap", href: "/#products" },
                 { label: "STP Plant", href: "/#products" },
                 { label: "Sanitary Pad Disposal", href: "/#products" },

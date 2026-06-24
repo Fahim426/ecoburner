@@ -281,7 +281,6 @@ export default function ContactPage() {
                     <option>Stainless Steel Incinerator Plant</option>
                     <option>FRP Biogas Plant</option>
                     <option>Eco-Bin – Food Waste Compost Machine</option>
-                    <option>Napkin Burning Incinerator</option>
                     <option>Oil Grease Trap</option>
                     <option>STP Plant</option>
                     <option>Sanitary Pad Disposal</option>
