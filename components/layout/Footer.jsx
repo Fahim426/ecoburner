@@ -23,8 +23,8 @@ export default function Footer() {
                 display: "inline-flex",
                 alignItems: "center",
                 justifyContent: "center",
-                width: "36px",
-                height: "36px",
+                width: "44px",
+                height: "44px",
                 borderRadius: "50%",
                 border: "1px solid #DDE8E3",
                 color: "#4A6259",
@@ -44,8 +44,8 @@ export default function Footer() {
               }}
             >
               <svg
-                width="18"
-                height="18"
+                width="22"
+                height="22"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -67,8 +67,8 @@ export default function Footer() {
                 display: "inline-flex",
                 alignItems: "center",
                 justifyContent: "center",
-                width: "36px",
-                height: "36px",
+                width: "44px",
+                height: "44px",
                 borderRadius: "50%",
                 border: "1px solid #DDE8E3",
                 color: "#4A6259",
@@ -88,8 +88,8 @@ export default function Footer() {
               }}
             >
               <svg
-                width="18"
-                height="18"
+                width="22"
+                height="22"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
