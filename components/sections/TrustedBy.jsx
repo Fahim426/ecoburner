@@ -1,15 +1,15 @@
 "use client";
 
 const logos = [
-  { src: "/images/logo-1-clean.png", alt: "Government of Karnataka", height: "130px" },
-  { src: "/images/logo-2-clean.png", alt: "Kalyan Silks", height: "130px" },
-  { src: "/images/logo-3-clean.png", alt: "CM Multispeciality Hospital", height: "130px" },
-  { src: "/images/logo-4-clean.png", alt: "ABC", height: "130px" },
-  { src: "/images/logo-5-clean.png", alt: "Indo Fish Meal & Oil Co.", height: "130px" },
-  { src: "/images/logo-6-clean.png", alt: "City Gold", height: "150px" },
-  { src: "/images/logo-7-clean.png", alt: "Aramana Hospital", height: "140px" },
-  { src: "/images/logo-8-clean.png", alt: "Wintouch Academy", height: "130px" },
-  { src: "/images/logo-9-clean.png", alt: "The Global Public School", height: "130px" },
+  { src: "/images/logo-1.png", alt: "Government of Karnataka" },
+  { src: "/images/logo-2.png", alt: "Kalyan Silks" },
+  { src: "/images/logo-3.png", alt: "CM Multispeciality Hospital" },
+  { src: "/images/logo-4.png", alt: "ABC" },
+  { src: "/images/logo-5.webp", alt: "Indo Fish Meal & Oil Co." },
+  { src: "/images/logo-6.jpeg", alt: "City Gold" },
+  { src: "/images/logo-7.jpeg", alt: "Aramana Hospital" },
+  { src: "/images/logo-8.png", alt: "Wintouch Academy" },
+  { src: "/images/logo-9.jpg", alt: "The Global Public School" },
 ];
 
 export default function TrustedBy() {
@@ -84,14 +84,14 @@ export default function TrustedBy() {
                   e.currentTarget.style.boxShadow = "0 8px 24px rgba(26,122,74,0.08)";
                   e.currentTarget.style.borderColor = "#1A7A4A";
                   const img = e.currentTarget.querySelector("img");
-                  if (img) img.style.filter = "brightness(0) opacity(0.9)";
+                  if (img) img.style.opacity = "1";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = "scale(1)";
                   e.currentTarget.style.boxShadow = "none";
                   e.currentTarget.style.borderColor = "#DDE8E3";
                   const img = e.currentTarget.querySelector("img");
-                  if (img) img.style.filter = "brightness(0) opacity(0.5)";
+                  if (img) img.style.opacity = "0.8";
                 }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -104,8 +104,8 @@ export default function TrustedBy() {
                     maxWidth: "220px",
                     objectFit: "contain",
                     display: "block",
-                    filter: "brightness(0) opacity(0.5)",
-                    transition: "filter 0.3s ease",
+                    opacity: "0.8",
+                    transition: "opacity 0.3s ease",
                   }}
                 />
               </div>
