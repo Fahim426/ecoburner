@@ -66,12 +66,12 @@ export default function HeroSlider() {
         .hero-section {
           position: relative;
           width: 100%;
-          height: calc(100vh - 90px);
-          min-height: 550px;
+          height: 100vh;
+          min-height: 600px;
           overflow: hidden;
           background-color: #FFFFFF;
           border-bottom: 1px solid #DDE8E3;
-          margin-top: 90px; /* Offset header on all screens */
+          margin-top: 0;
         }
         .hero-container {
           position: relative;
@@ -102,7 +102,7 @@ export default function HeroSlider() {
           inset: 0;
           width: 100%;
           height: 100%;
-          padding: 0 5vw;
+          padding: 100px 5vw 0;
           background: transparent;
           display: flex;
           align-items: center;
@@ -133,6 +133,24 @@ export default function HeroSlider() {
           display: flex;
           gap: 8px;
           z-index: 20;
+        }
+        .hero-arrow-btn {
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          background: rgba(13,31,26,0.05);
+          border: 1px solid #DDE8E3;
+          color: #0D1F1A;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.2s ease;
+        }
+        .hero-arrow-btn:hover {
+          background: #1A7A4A;
+          color: #FFFFFF;
+          border-color: #1A7A4A;
         }
         .hero-headline-container {
           min-height: 80px;
@@ -166,9 +184,9 @@ export default function HeroSlider() {
             min-height: 90px;
           }
         }
-         @media (max-width: 767px) {
+        @media (max-width: 767px) {
           .hero-section {
-            height: 500px;
+            height: 520px;
             min-height: auto;
           }
           .hero-gradient-overlay {
@@ -176,10 +194,10 @@ export default function HeroSlider() {
           }
           .hero-content-wrapper {
             align-items: flex-start;
-            padding-top: 20px;
+            padding-top: 110px;
           }
           .hero-content-inner {
-            padding-bottom: 60px;
+            padding-bottom: 40px;
           }
           .hero-headline-container {
             min-height: auto;
@@ -189,10 +207,24 @@ export default function HeroSlider() {
             min-height: auto;
             margin-bottom: 24px;
           }
-        }
-        @media (max-width: 480px) {
           .hero-arrows {
-            display: none; /* Hide navigation arrows on small mobile screens to keep layout clean */
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 16px;
+            pointer-events: none;
+            width: 100%;
+            bottom: auto;
+            right: auto;
+          }
+          .hero-arrow-btn {
+            pointer-events: auto;
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
           }
         }
       `}} />
@@ -347,59 +379,15 @@ export default function HeroSlider() {
               <div className="hero-arrows">
                 <button
                   onClick={prev}
+                  className="hero-arrow-btn"
                   aria-label="Previous slide"
-                  style={{
-                    width: "36px",
-                    height: "36px",
-                    borderRadius: "50%",
-                    background: "rgba(13,31,26,0.05)",
-                    border: "1px solid #DDE8E3",
-                    color: "#0D1F1A",
-                    cursor: "pointer",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    transition: "all 0.2s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = "#1A7A4A";
-                    e.currentTarget.style.color = "#FFFFFF";
-                    e.currentTarget.style.borderColor = "#1A7A4A";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "rgba(13,31,26,0.05)";
-                    e.currentTarget.style.color = "#0D1F1A";
-                    e.currentTarget.style.borderColor = "#DDE8E3";
-                  }}
                 >
                   <ChevronLeft size={16} />
                 </button>
                 <button
                   onClick={next}
+                  className="hero-arrow-btn"
                   aria-label="Next slide"
-                  style={{
-                    width: "36px",
-                    height: "36px",
-                    borderRadius: "50%",
-                    background: "rgba(13,31,26,0.05)",
-                    border: "1px solid #DDE8E3",
-                    color: "#0D1F1A",
-                    cursor: "pointer",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    transition: "all 0.2s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = "#1A7A4A";
-                    e.currentTarget.style.color = "#FFFFFF";
-                    e.currentTarget.style.borderColor = "#1A7A4A";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "rgba(13,31,26,0.05)";
-                    e.currentTarget.style.color = "#0D1F1A";
-                    e.currentTarget.style.borderColor = "#DDE8E3";
-                  }}
                 >
                   <ChevronRight size={16} />
                 </button>
