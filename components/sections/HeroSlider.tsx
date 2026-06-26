@@ -207,22 +207,7 @@ export default function HeroSlider() {
             min-height: auto;
             margin-bottom: 24px;
           }
-          .hero-arrows {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 16px;
-            pointer-events: none;
-            width: 100%;
-            bottom: auto;
-            right: auto;
-          }
           .hero-arrow-btn {
-            pointer-events: auto;
             background: rgba(255, 255, 255, 0.85);
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
           }
