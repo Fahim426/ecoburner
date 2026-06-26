@@ -168,18 +168,18 @@ export default function HeroSlider() {
         }
          @media (max-width: 767px) {
           .hero-section {
-            height: 580px;
+            height: 500px;
             min-height: auto;
           }
           .hero-gradient-overlay {
             background: linear-gradient(to bottom, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.94) 60%, rgba(255, 255, 255, 0.98) 100%);
           }
           .hero-content-wrapper {
-            align-items: center;
-            padding-top: 0;
+            align-items: flex-start;
+            padding-top: 20px;
           }
           .hero-content-inner {
-            padding-bottom: 80px;
+            padding-bottom: 60px;
           }
           .hero-headline-container {
             min-height: auto;
