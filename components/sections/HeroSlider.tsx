@@ -66,12 +66,12 @@ export default function HeroSlider() {
         .hero-section {
           position: relative;
           width: 100%;
-          height: 100vh;
-          min-height: 600px;
+          height: calc(100vh - 90px);
+          min-height: 550px;
           overflow: hidden;
           background-color: #FFFFFF;
           border-bottom: 1px solid #DDE8E3;
-          margin-top: 0;
+          margin-top: 90px; /* Offset header on all screens */
         }
         .hero-container {
           position: relative;
@@ -102,7 +102,7 @@ export default function HeroSlider() {
           inset: 0;
           width: 100%;
           height: 100%;
-          padding: 100px 5vw 0;
+          padding: 0 5vw;
           background: transparent;
           display: flex;
           align-items: center;
@@ -186,18 +186,17 @@ export default function HeroSlider() {
         }
         @media (max-width: 767px) {
           .hero-section {
-            height: 520px;
+            height: 480px;
             min-height: auto;
           }
           .hero-gradient-overlay {
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.94) 60%, rgba(255, 255, 255, 0.98) 100%);
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.85) 60%, rgba(255, 255, 255, 0.95) 100%);
           }
           .hero-content-wrapper {
-            align-items: flex-start;
-            padding-top: 110px;
+            align-items: center;
           }
           .hero-content-inner {
-            padding-bottom: 40px;
+            padding-bottom: 60px;
           }
           .hero-headline-container {
             min-height: auto;

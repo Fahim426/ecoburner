@@ -24,8 +24,8 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
-  const isTransparent = !scrolled;
   const isDarkHeroPage = pathname?.startsWith("/solutions/");
+  const isTransparent = !scrolled && isDarkHeroPage;
 
   return (
     <header
