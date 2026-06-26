@@ -145,8 +145,11 @@ export default function Footer() {
                 <li key={l.label}>
                   <Link
                     href={`/#products?select=${l.slug}`}
-                    onClick={() => {
+                    scroll={false}
+                    onClick={(e) => {
                       if (window.location.pathname === "/") {
+                        e.preventDefault();
+                        window.history.pushState(null, "", `/#products?select=${l.slug}`);
                         const event = new CustomEvent("select-product", { detail: l.slug });
                         window.dispatchEvent(event);
                       }
