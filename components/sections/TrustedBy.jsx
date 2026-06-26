@@ -24,6 +24,27 @@ export default function TrustedBy() {
 
   return (
     <section id="trusted-by" style={{ padding: "80px 0", background: "#FFFFFF", borderTop: "1px solid #DDE8E3", borderBottom: "1px solid #DDE8E3", overflow: "hidden" }}>
+      {/* Inline styles to guarantee keyframe loading and hover actions */}
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes customMarquee {
+          0% {
+            transform: translate3d(0, 0, 0);
+          }
+          100% {
+            transform: translate3d(-50%, 0, 0);
+          }
+        }
+        .custom-marquee-track {
+          display: flex;
+          flex-wrap: nowrap;
+          width: max-content;
+          animation: customMarquee 15s linear infinite;
+        }
+        .custom-marquee-track:hover {
+          animation-play-state: paused;
+        }
+      `}} />
+
       <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 5vw" }}>
 
         {/* Header */}
@@ -69,7 +90,7 @@ export default function TrustedBy() {
           }} />
 
           {/* Scrolling track */}
-          <div className="animate-marquee" style={{ display: "flex", gap: "140px", alignItems: "center" }}>
+          <div className="custom-marquee-track" style={{ gap: "140px", alignItems: "center" }}>
             {doubleLogos.map((logo, idx) => (
               <div
                 key={idx}
