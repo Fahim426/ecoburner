@@ -71,7 +71,7 @@ function ProductCard({ product, idx }) {
     const timeout = setTimeout(() => {
       const interval = setInterval(() => {
         setCurrentImage((prev) => (prev + 1) % product.images.length);
-      }, 5000);
+      }, 10000);
       return () => clearInterval(interval);
     }, idx * 1200);
     return () => clearTimeout(timeout);
