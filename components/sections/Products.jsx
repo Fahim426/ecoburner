@@ -1,9 +1,11 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, X, MessageCircle } from "lucide-react";
+
+const WHATSAPP_NUMBER = "917736880801";
 
 const products = [
   {
@@ -63,7 +65,7 @@ const products = [
   },
 ];
 
-function ProductCard({ product, idx }) {
+function ProductCard({ product, idx, onSelect }) {
   const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
@@ -87,12 +89,13 @@ function ProductCard({ product, idx }) {
         y: -4,
         boxShadow: "0 8px 24px rgba(26,122,74,0.10)",
       }}
+      onClick={() => onSelect(product)}
       style={{
         background: "#FFFFFF",
         border: "1px solid #DDE8E3",
         borderRadius: "14px",
         overflow: "hidden",
-        cursor: "default",
+        cursor: "pointer",
         boxShadow: "0 2px 10px rgba(26,122,74,0.04)",
         transition: "all 0.3s ease",
       }}
@@ -157,9 +160,222 @@ function ProductCard({ product, idx }) {
   );
 }
 
+/* ── Product Popup Modal ── */
+function ProductModal({ product, onClose }) {
+  const [imgIdx, setImgIdx] = useState(0);
+
+  // Close on Escape key
+  useEffect(() => {
+    const handler = (e) => { if (e.key === "Escape") onClose(); };
+    window.addEventListener("keydown", handler);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", handler);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
+
+  const next = () => setImgIdx((p) => (p + 1) % product.images.length);
+  const prev = () => setImgIdx((p) => (p - 1 + product.images.length) % product.images.length);
+
+  const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+    `Hi, I am interested in your ${product.title}. Please share details and pricing.`
+  )}`;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.25 }}
+      onClick={onClose}
+      style={{
+        position: "fixed",
+        inset: 0,
+        zIndex: 9999,
+        background: "rgba(0, 0, 0, 0.7)",
+        backdropFilter: "blur(6px)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "24px",
+      }}
+    >
+      <motion.div
+        initial={{ opacity: 0, scale: 0.92, y: 30 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.92, y: 30 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+        onClick={(e) => e.stopPropagation()}
+        style={{
+          background: "#FFFFFF",
+          borderRadius: "20px",
+          overflow: "hidden",
+          maxWidth: "680px",
+          width: "100%",
+          maxHeight: "90vh",
+          overflowY: "auto",
+          boxShadow: "0 24px 80px rgba(0,0,0,0.25)",
+        }}
+      >
+        {/* Close button */}
+        <div style={{ display: "flex", justifyContent: "flex-end", padding: "16px 20px 0" }}>
+          <button
+            onClick={onClose}
+            aria-label="Close"
+            style={{
+              width: "40px",
+              height: "40px",
+              borderRadius: "50%",
+              border: "1px solid #DDE8E3",
+              background: "#F4F7F5",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+              color: "#0D1F1A",
+              transition: "all 0.2s",
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = "#e53e3e"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "#e53e3e"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = "#F4F7F5"; e.currentTarget.style.color = "#0D1F1A"; e.currentTarget.style.borderColor = "#DDE8E3"; }}
+          >
+            <X size={18} />
+          </button>
+        </div>
+
+        {/* Image area */}
+        <div style={{ position: "relative", aspectRatio: "4/3", background: "#F4F7F5", margin: "0 20px", borderRadius: "14px", overflow: "hidden" }}>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={imgIdx}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+              style={{ position: "absolute", inset: 0 }}
+            >
+              <Image
+                src={product.images[imgIdx]}
+                alt={product.title}
+                fill
+                sizes="680px"
+                style={{ objectFit: "contain", objectPosition: "center" }}
+              />
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Prev / Next arrows */}
+          {product.images.length > 1 && (
+            <>
+              <button
+                onClick={prev}
+                aria-label="Previous image"
+                style={{
+                  position: "absolute", left: "12px", top: "50%", transform: "translateY(-50%)",
+                  width: "36px", height: "36px", borderRadius: "50%",
+                  background: "rgba(255,255,255,0.9)", border: "1px solid #DDE8E3",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  cursor: "pointer", color: "#0D1F1A", boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+                }}
+              >
+                <ChevronLeft size={16} />
+              </button>
+              <button
+                onClick={next}
+                aria-label="Next image"
+                style={{
+                  position: "absolute", right: "12px", top: "50%", transform: "translateY(-50%)",
+                  width: "36px", height: "36px", borderRadius: "50%",
+                  background: "rgba(255,255,255,0.9)", border: "1px solid #DDE8E3",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  cursor: "pointer", color: "#0D1F1A", boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+                }}
+              >
+                <ChevronRight size={16} />
+              </button>
+            </>
+          )}
+
+          {/* Dot indicators */}
+          {product.images.length > 1 && (
+            <div style={{ position: "absolute", bottom: "12px", left: "50%", transform: "translateX(-50%)", display: "flex", gap: "6px" }}>
+              {product.images.map((_, i) => (
+                <div
+                  key={i}
+                  onClick={() => setImgIdx(i)}
+                  style={{
+                    width: i === imgIdx ? "20px" : "8px",
+                    height: "8px",
+                    borderRadius: "4px",
+                    background: i === imgIdx ? "#1A7A4A" : "rgba(0,0,0,0.2)",
+                    cursor: "pointer",
+                    transition: "all 0.3s ease",
+                  }}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Product info */}
+        <div style={{ padding: "24px 24px 28px" }}>
+          {product.subtitle && (
+            <div style={{ marginBottom: "10px" }}>
+              <span style={{
+                display: "inline-block",
+                background: "#D4EDDA",
+                color: "#1A7A4A",
+                fontSize: "12px",
+                fontWeight: 600,
+                borderRadius: "20px",
+                padding: "4px 12px",
+                textTransform: "uppercase",
+                letterSpacing: "0.5px",
+              }}>
+                {product.subtitle}
+              </span>
+            </div>
+          )}
+          <h3 style={{
+            color: "#0D1F1A",
+            fontWeight: 800,
+            fontSize: "clamp(1.3rem, 2vw, 1.6rem)",
+            lineHeight: 1.3,
+            marginBottom: "20px",
+          }}>
+            {product.title}
+          </h3>
+
+          {/* CTA buttons */}
+          <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-whatsapp"
+              style={{ flex: 1, minWidth: "200px", justifyContent: "center" }}
+            >
+              <MessageCircle size={18} />
+              Enquire on WhatsApp
+            </a>
+            <a
+              href="/contact"
+              className="btn-outline"
+              style={{ flex: 1, minWidth: "200px", justifyContent: "center" }}
+            >
+              Fill Enquiry Form
+            </a>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
 export default function Products() {
   const scrollRef = useRef(null);
   const autoplayTimerRef = useRef(null);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const startAutoplay = () => {
     stopAutoplay();
@@ -323,11 +539,18 @@ export default function Products() {
               }}
               className="w-full sm:w-[calc((100%-24px)/2)] lg:w-[calc((100%-72px)/4)] snap-item"
             >
-              <ProductCard product={product} idx={idx} />
+              <ProductCard product={product} idx={idx} onSelect={setSelectedProduct} />
             </div>
           ))}
         </div>
       </div>
+
+      {/* Product Popup */}
+      <AnimatePresence>
+        {selectedProduct && (
+          <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
+        )}
+      </AnimatePresence>
     </section>
   );
 }
