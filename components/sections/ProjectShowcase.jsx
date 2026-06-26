@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const installations = [
   {
     image: "/images/ss-1.png",
-    title: "Stainless Steel Incinerator Plant",
+    title: "Stainless Steel Incinerator Plant - Residential",
     location: "South India",
     type: "Incineration",
   },
@@ -17,7 +17,7 @@ const installations = [
     type: "Green Energy",
   },
   {
-    image: "/images/eco-1.jpg",
+    image: "/images/eco-1.png",
     title: "Eco-Bin Compost Machine",
     location: "South India",
     type: "Composting",
@@ -98,7 +98,7 @@ export default function ProjectShowcase() {
                   fill
                   sizes="(max-width: 768px) 100vw, 590px"
                   style={{
-                    objectFit: "cover",
+                    objectFit: "contain",
                     objectPosition: "center",
                     transition: "transform 0.6s ease",
                   }}

@@ -278,7 +278,9 @@ export default function ContactPage() {
                     style={{ ...focusStyle("product"), cursor: "pointer" }}
                   >
                     <option value="">Select a product...</option>
-                    <option>Stainless Steel Incinerator Plant</option>
+                    <option>Stainless Steel Incinerator Plant - Residential</option>
+                    <option>Stainless Steel Incinerator Plant - Commercial</option>
+                    <option>Smokeless Incinerator</option>
                     <option>FRP Biogas Plant</option>
                     <option>Eco-Bin – Food Waste Compost Machine</option>
                     <option>Oil Grease Trap</option>
@@ -371,7 +373,7 @@ export default function ContactPage() {
                     icon: Phone,
                     label: "Call Us",
                     value: "+91-77368-80801",
-                    sub: "24 * 7 assistance",
+                    sub: "24 x 7 assistance",
                     href: "tel:+917736880801",
                     color: "#1A7A4A",
                   },

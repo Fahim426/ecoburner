@@ -148,7 +148,7 @@ export default function FinalCTA() {
                 </div>
                 <div style={{ flex: 1 }}>
                   <div style={{ color: "#0D1F1A", fontWeight: 600, fontSize: "1.125rem", marginBottom: "2px" }}>+91-77368-80801</div>
-                  <div style={{ color: "#4A6259", fontSize: "1rem" }}>24 * 7 assistance</div>
+                  <div style={{ color: "#4A6259", fontSize: "1rem" }}>24 x 7 assistance</div>
                 </div>
                 <ArrowRight size={16} style={{ color: "#8FA89F" }} />
               </a>

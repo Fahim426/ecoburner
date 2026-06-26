@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, Wrench, DollarSign, Headphones } from "lucide-react";
+import { Award, Wrench, DollarSign, Headphones, Flame } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 import CountUp from "react-countup";
 
@@ -25,6 +25,11 @@ const reasons = [
     icon: Headphones,
     title: "Committed After-Sales Support",
     desc: "We provide complete installation, operator training, annual maintenance contracts, and genuine spare parts management from our South India base.",
+  },
+  {
+    icon: Flame,
+    title: "Smokeless Incineration Technology",
+    desc: "A smokeless incinerator is used to safely dispose of waste at ultra-high temperatures while preventing smoke, odors, and toxic emissions from entering the atmosphere. By using multi-stage combustion chambers, these devices burn municipal, industrial, or medical waste, reducing its original solid volume by up to 95%.",
   },
 ];
 

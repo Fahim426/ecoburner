@@ -132,7 +132,9 @@ export default function Footer() {
             </h3>
             <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "8px" }}>
               {[
-                { label: "Stainless Steel Incinerator Plant", href: "/#products" },
+                { label: "Stainless Steel Incinerator Plant - Residential", href: "/#products" },
+                { label: "Stainless Steel Incinerator Plant - Commercial", href: "/#products" },
+                { label: "Smokeless Incinerator", href: "/#products" },
                 { label: "FRP Biogas Plant", href: "/#products" },
                 { label: "Eco-Bin Compost Machine", href: "/#products" },
 

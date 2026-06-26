@@ -1,22 +1,21 @@
 "use client";
 
 const logos = [
-  { src: "/images/logo-1.png", alt: "Government of Karnataka" },
-  { src: "/images/logo-2.png", alt: "Kalyan Jewellers" },
-  { src: "/images/logo-3.png", alt: "CM Multispeciality Hospital" },
-  { src: "/images/logo-4.png", alt: "ABC" },
-  { src: "/images/logo-5.png", alt: "Indo Fish Meal & Oil Co." },
-  { src: "/images/logo-6.png", alt: "City Gold & Diamonds" },
-  { src: "/images/logo-7.png", alt: "Aramana Hospital" },
-  { src: "/images/logo-8.png", alt: "Wintouch Academy" },
-  { src: "/images/logo-9.png", alt: "The Global Public School" },
-  { src: "/images/logo-10.png", alt: "Rubber Board India" },
-  { src: "/images/logo-11.png", alt: "CPCRI" },
-  { src: "/images/logo-12.png", alt: "Kuniya Group of Institutions" },
-  { src: "/images/logo-13.png", alt: "United Medical Centre" },
-  { src: "/images/logo-14.png", alt: "Aramana Hospital" },
-  { src: "/images/logo-15.png", alt: "Shobhika Weddings" },
-  { src: "/images/logo-16.png", alt: "State Bank of India" },
+  { src: "/images/logo-1.png", alt: "Government of Karnataka", style: { height: "140px" } },
+  { src: "/images/logo-2.png", alt: "Kalyan Silks", style: { height: "125px", borderRadius: "8px" } },
+  { src: "/images/logo-3.png", alt: "CM Multispeciality Hospital", style: { height: "110px" } },
+  { src: "/images/logo-4.png", alt: "ABC", style: { height: "80px" } },
+  { src: "/images/logo-5.png", alt: "Indo Fish Meal & Oil Co.", style: { height: "90px" } },
+  { src: "/images/logo-7.png", alt: "Aramana Hospital", style: { height: "140px" } },
+  { src: "/images/logo-8.png", alt: "Wintouch Academy", style: { height: "125px" } },
+  { src: "/images/logo-9.png", alt: "The Global Public School", style: { height: "140px" } },
+  { src: "/images/logo-10.png", alt: "Rubber Board India", style: { height: "140px" } },
+  { src: "/images/logo-11.png", alt: "CPCRI", style: { height: "140px" } },
+  { src: "/images/logo-12.png", alt: "Kuniya Group of Institutions", style: { height: "150px" } },
+  { src: "/images/logo-13.png", alt: "United Medical Centre", style: { height: "110px" } },
+  { src: "/images/logo-14.png", alt: "Aramana Hospital", style: { height: "140px" } },
+  { src: "/images/logo-15.png", alt: "Shobhika Weddings", style: { height: "125px", borderRadius: "8px" } },
+  { src: "/images/logo-16.png", alt: "State Bank of India", style: { height: "100px" } },
 ];
 
 export default function TrustedBy() {
@@ -25,7 +24,8 @@ export default function TrustedBy() {
   return (
     <section id="trusted-by" style={{ padding: "80px 0", background: "#FFFFFF", borderTop: "1px solid #DDE8E3", borderBottom: "1px solid #DDE8E3", overflow: "hidden" }}>
       {/* Inline styles to guarantee keyframe loading and hover actions */}
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @keyframes customMarquee {
           0% {
             transform: translate3d(0, 0, 0);
@@ -38,10 +38,7 @@ export default function TrustedBy() {
           display: flex;
           flex-wrap: nowrap;
           width: max-content;
-          animation: customMarquee 15s linear infinite;
-        }
-        .custom-marquee-track:hover {
-          animation-play-state: paused;
+          animation: customMarquee 45s linear infinite;
         }
       `}} />
 
@@ -101,8 +98,9 @@ export default function TrustedBy() {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  height: "90px",
-                  width: "160px",
+                  height: "180px",
+                  width: "auto",
+                  minWidth: "240px",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = "scale(1.08)";
@@ -120,12 +118,13 @@ export default function TrustedBy() {
                   src={logo.src}
                   alt={logo.alt}
                   style={{
-                    maxHeight: "100%",
-                    maxWidth: "100%",
                     objectFit: "contain",
                     display: "block",
                     opacity: "0.85",
                     transition: "opacity 0.3s ease",
+                    maxHeight: "100%",
+                    maxWidth: "100%",
+                    ...logo.style,
                   }}
                 />
               </div>

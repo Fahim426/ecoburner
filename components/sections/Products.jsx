@@ -7,10 +7,22 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const products = [
   {
-    slug: "ss-incinerator-plant",
-    title: "Stainless Steel Incinerator Plant",
+    slug: "ss-incinerator-plant-residential",
+    title: "Stainless Steel Incinerator Plant - Residential",
     subtitle: "Solid Waste Management",
     images: ["/images/ss-1.png", "/images/ss-2.png"],
+  },
+  {
+    slug: "ss-incinerator-plant-commercial",
+    title: "Stainless Steel Incinerator Plant - Commercial",
+    subtitle: "Solid Waste Management",
+    images: ["/images/new ss-1.png", "/images/new ss-2.png"],
+  },
+  {
+    slug: "smokeless-incinerator",
+    title: "Smokeless Incinerator",
+    subtitle: "Eco-Friendly Waste Solution",
+    images: ["/images/smoke-1.png", "/images/smoke-2.png"],
   },
   {
     slug: "frp-biogas-plant",
@@ -22,32 +34,32 @@ const products = [
     slug: "eco-bin",
     title: "Eco-Bin Compost Machine",
     subtitle: "Food Waste Compost Machine",
-    images: ["/images/eco-1.jpg", "/images/eco-2.png"],
+    images: ["/images/eco-1.png", "/images/eco-2.png"],
   },
 
   {
     slug: "oil-grease-trap",
     title: "Oil Grease Trap",
     subtitle: "Wastewater Treatment",
-    images: ["/images/ss-1.png"],
+    images: ["/images/oil-1.png", "/images/oil-2.png"],
   },
   {
     slug: "stp-plant",
     title: "STP Plant",
     subtitle: "Sewage Treatment Solution",
-    images: ["/images/ss-1.png"],
+    images: ["/images/stp-1.png", "/images/stp-2.png"],
   },
   {
     slug: "sanitary-pad-disposal",
     title: "Sanitary Pad Disposal",
     subtitle: "Hygiene Waste Solution",
-    images: ["/images/sanitary-1.jpg", "/images/sanitary-2.png"],
+    images: ["/images/sanitary-1.png", "/images/sanitary-2.png"],
   },
   {
     slug: "food-waste-disposal",
     title: "Food Waste Disposal",
     subtitle: "Organic Waste Management",
-    images: ["/images/eco-1.jpg"],
+    images: ["/images/food-1.png", "/images/food-2.png"],
   },
 ];
 
@@ -102,7 +114,7 @@ function ProductCard({ product, idx }) {
               fill
               sizes="(max-width: 768px) 100vw, 300px"
               style={{
-                objectFit: "cover",
+                objectFit: "contain",
                 objectPosition: "center",
               }}
             />
