@@ -132,20 +132,25 @@ export default function Footer() {
             </h3>
             <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "8px" }}>
               {[
-                { label: "Stainless Steel Incinerator Plant - Residential", href: "/#products" },
-                { label: "Stainless Steel Incinerator Plant - Commercial", href: "/#products" },
-                { label: "Smokeless Incinerator", href: "/#products" },
-                { label: "FRP Biogas Plant", href: "/#products" },
-                { label: "Eco-Bin Compost Machine", href: "/#products" },
-
-                { label: "Oil Grease Trap", href: "/#products" },
-                { label: "STP Plant", href: "/#products" },
-                { label: "Sanitary Pad Disposal", href: "/#products" },
-                { label: "Food Waste Disposal", href: "/#products" },
+                { label: "Stainless Steel Incinerator Plant - Residential", slug: "ss-incinerator-plant-residential" },
+                { label: "Stainless Steel Incinerator Plant - Commercial", slug: "ss-incinerator-plant-commercial" },
+                { label: "Smokeless Incinerator", slug: "smokeless-incinerator" },
+                { label: "FRP Biogas Plant", slug: "frp-biogas-plant" },
+                { label: "Eco-Bin Compost Machine", slug: "eco-bin" },
+                { label: "Oil Grease Trap", slug: "oil-grease-trap" },
+                { label: "STP Plant", slug: "stp-plant" },
+                { label: "Sanitary Pad Disposal", slug: "sanitary-pad-disposal" },
+                { label: "Food Waste Disposal", slug: "food-waste-disposal" },
               ].map((l) => (
                 <li key={l.label}>
                   <Link
-                    href={l.href}
+                    href={`/#products?select=${l.slug}`}
+                    onClick={() => {
+                      if (window.location.pathname === "/") {
+                        const event = new CustomEvent("select-product", { detail: l.slug });
+                        window.dispatchEvent(event);
+                      }
+                    }}
                     style={{ color: "#4A6259", fontSize: "1rem", textDecoration: "none", transition: "color 0.2s" }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = "#1A7A4A")}
                     onMouseLeave={(e) => (e.currentTarget.style.color = "#4A6259")}

@@ -418,7 +418,45 @@ export default function Products() {
 
   useEffect(() => {
     startAutoplay();
-    return () => stopAutoplay();
+
+    // 1. Helper to select and scroll
+    const selectAndScroll = (slug) => {
+      const prod = products.find((p) => p.slug === slug);
+      if (prod) {
+        setSelectedProduct(prod);
+        const element = document.getElementById("products");
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    };
+
+    // 2. Listen to custom select-product events (e.g. from footer clicks on same page)
+    const handleSelectEvent = (e) => {
+      selectAndScroll(e.detail);
+    };
+
+    window.addEventListener("select-product", handleSelectEvent);
+
+    // 3. Handle query param on mount (e.g. navigation from other pages)
+    const params = new URLSearchParams(window.location.search);
+    const selectSlug = params.get("select");
+    if (selectSlug) {
+      // Small timeout to allow page layout to settle before scrolling
+      const timer = setTimeout(() => {
+        selectAndScroll(selectSlug);
+      }, 500);
+      return () => {
+        stopAutoplay();
+        window.removeEventListener("select-product", handleSelectEvent);
+        clearTimeout(timer);
+      };
+    }
+
+    return () => {
+      stopAutoplay();
+      window.removeEventListener("select-product", handleSelectEvent);
+    };
   }, []);
 
   const scroll = (direction) => {
