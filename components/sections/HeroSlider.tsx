@@ -166,17 +166,28 @@ export default function HeroSlider() {
             min-height: 90px;
           }
         }
-        @media (max-width: 767px) {
+         @media (max-width: 767px) {
           .hero-section {
-            height: 480px;
+            height: 580px;
             min-height: auto;
           }
+          .hero-gradient-overlay {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.94) 60%, rgba(255, 255, 255, 0.98) 100%);
+          }
           .hero-content-wrapper {
-            align-items: flex-start;
-            padding-top: 40px;
+            align-items: center;
+            padding-top: 0;
           }
           .hero-content-inner {
-            padding-bottom: 20px;
+            padding-bottom: 80px;
+          }
+          .hero-headline-container {
+            min-height: auto;
+            margin-bottom: 12px;
+          }
+          .hero-subtext-container {
+            min-height: auto;
+            margin-bottom: 24px;
           }
         }
         @media (max-width: 480px) {
