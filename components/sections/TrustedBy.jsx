@@ -1,15 +1,22 @@
 "use client";
 
 const logos = [
-  { src: "/images/logo-1.png", alt: "Government of Karnataka", height: "130px" },
-  { src: "/images/logo-2.png", alt: "Kalyan Silks", height: "130px" },
-  { src: "/images/logo-3.png", alt: "CM Multispeciality Hospital", height: "130px" },
-  { src: "/images/logo-4.png", alt: "ABC", height: "130px" },
-  { src: "/images/logo-5.webp", alt: "Indo Fish Meal & Oil Co.", height: "130px" },
-  { src: "/images/logo-6.png", alt: "City Gold", height: "150px" },
-  { src: "/images/logo-7.png", alt: "Aramana Hospital", height: "140px" },
-  { src: "/images/logo-8.png", alt: "Wintouch Academy", height: "130px" },
-  { src: "/images/logo-9.png", alt: "The Global Public School", height: "130px" },
+  { src: "/images/logo-1.png", alt: "Government of Karnataka" },
+  { src: "/images/logo-2.png", alt: "Kalyan Jewellers" },
+  { src: "/images/logo-3.png", alt: "CM Multispeciality Hospital" },
+  { src: "/images/logo-4.png", alt: "ABC" },
+  { src: "/images/logo-5.png", alt: "Indo Fish Meal & Oil Co." },
+  { src: "/images/logo-6.png", alt: "City Gold & Diamonds" },
+  { src: "/images/logo-7.png", alt: "Aramana Hospital" },
+  { src: "/images/logo-8.png", alt: "Wintouch Academy" },
+  { src: "/images/logo-9.png", alt: "The Global Public School" },
+  { src: "/images/logo-10.png", alt: "Rubber Board India" },
+  { src: "/images/logo-11.png", alt: "CPCRI" },
+  { src: "/images/logo-12.png", alt: "Kuniya Group of Institutions" },
+  { src: "/images/logo-13.png", alt: "United Medical Centre" },
+  { src: "/images/logo-14.png", alt: "Aramana Hospital" },
+  { src: "/images/logo-15.png", alt: "Shobhika Weddings" },
+  { src: "/images/logo-16.png", alt: "State Bank of India" },
 ];
 
 export default function TrustedBy() {
@@ -62,7 +69,7 @@ export default function TrustedBy() {
           }} />
 
           {/* Scrolling track */}
-          <div className="animate-marquee" style={{ display: "flex", gap: "250px", alignItems: "center" }}>
+          <div className="animate-marquee" style={{ display: "flex", gap: "140px", alignItems: "center" }}>
             {doubleLogos.map((logo, idx) => (
               <div
                 key={idx}
@@ -73,7 +80,8 @@ export default function TrustedBy() {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  height: "170px",
+                  height: "90px",
+                  width: "160px",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = "scale(1.08)";
@@ -91,9 +99,8 @@ export default function TrustedBy() {
                   src={logo.src}
                   alt={logo.alt}
                   style={{
-                    height: logo.height,
-                    width: "auto",
-                    maxWidth: "350px",
+                    maxHeight: "100%",
+                    maxWidth: "100%",
                     objectFit: "contain",
                     display: "block",
                     opacity: "0.85",

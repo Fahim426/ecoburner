@@ -10,44 +10,44 @@ const products = [
     slug: "ss-incinerator-plant",
     title: "Stainless Steel Incinerator Plant",
     subtitle: "Solid Waste Management",
-    images: ["/images/product-ss-incinerator.jpg", "/images/ss-2.jpg", "/images/ss-3.jpg"],
+    images: ["/images/ss-1.png", "/images/ss-2.png"],
   },
   {
     slug: "frp-biogas-plant",
     title: "FRP Biogas Plant",
     subtitle: "Organic Waste to Energy",
-    images: ["/images/product-frp-biogas.png", "/images/bio-2.jpeg"],
+    images: ["/images/bio-1.png", "/images/bio-2.png"],
   },
   {
     slug: "eco-bin",
     title: "Eco-Bin Compost Machine",
     subtitle: "Food Waste Compost Machine",
-    images: ["/images/product-ecobin.jpg", "/images/eco-2.jpeg"],
+    images: ["/images/eco-1.jpg", "/images/eco-2.png"],
   },
 
   {
     slug: "oil-grease-trap",
     title: "Oil Grease Trap",
     subtitle: "Wastewater Treatment",
-    images: ["/images/product-ss-incinerator.jpg"],
+    images: ["/images/ss-1.png"],
   },
   {
     slug: "stp-plant",
     title: "STP Plant",
     subtitle: "Sewage Treatment Solution",
-    images: ["/images/product-ss-incinerator.jpg"],
+    images: ["/images/ss-1.png"],
   },
   {
     slug: "sanitary-pad-disposal",
     title: "Sanitary Pad Disposal",
     subtitle: "Hygiene Waste Solution",
-    images: ["/images/product-napkin.jpg"],
+    images: ["/images/sanitary-1.jpg", "/images/sanitary-2.png"],
   },
   {
     slug: "food-waste-disposal",
     title: "Food Waste Disposal",
     subtitle: "Organic Waste Management",
-    images: ["/images/product-ecobin.jpg"],
+    images: ["/images/eco-1.jpg"],
   },
 ];
 

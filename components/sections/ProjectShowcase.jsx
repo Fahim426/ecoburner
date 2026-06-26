@@ -5,24 +5,23 @@ import { motion } from "framer-motion";
 
 const installations = [
   {
-    image: "/images/product-ss-incinerator.jpg",
+    image: "/images/ss-1.png",
     title: "Stainless Steel Incinerator Plant",
     location: "South India",
     type: "Incineration",
   },
   {
-    image: "/images/product-frp-biogas.png",
+    image: "/images/bio-1.png",
     title: "FRP Biogas Plant",
     location: "South India",
     type: "Green Energy",
   },
   {
-    image: "/images/product-ecobin.jpg",
+    image: "/images/eco-1.jpg",
     title: "Eco-Bin Compost Machine",
     location: "South India",
     type: "Composting",
   },
-
 ];
 
 export default function ProjectShowcase() {
