@@ -134,6 +134,18 @@ export default function HeroSlider() {
           gap: 8px;
           z-index: 20;
         }
+        .hero-headline-container {
+          min-height: 80px;
+          display: flex;
+          align-items: flex-end;
+          margin-bottom: 8px;
+        }
+        .hero-subtext-container {
+          min-height: 80px;
+          display: flex;
+          align-items: flex-start;
+          margin-bottom: 20px;
+        }
         @media (min-width: 768px) {
           .hero-section {
             min-height: 600px;
@@ -146,6 +158,25 @@ export default function HeroSlider() {
             margin-right: auto;
             max-width: 540px;
             padding-bottom: 0;
+          }
+          .hero-headline-container {
+            min-height: 130px;
+          }
+          .hero-subtext-container {
+            min-height: 90px;
+          }
+        }
+        @media (max-width: 767px) {
+          .hero-section {
+            height: 480px;
+            min-height: auto;
+          }
+          .hero-content-wrapper {
+            align-items: flex-start;
+            padding-top: 40px;
+          }
+          .hero-content-inner {
+            padding-bottom: 20px;
           }
         }
         @media (max-width: 480px) {
@@ -205,7 +236,7 @@ export default function HeroSlider() {
             </div>
 
             {/* Headline */}
-            <div style={{ minHeight: "130px", display: "flex", alignItems: "flex-end", marginBottom: "8px" }}>
+            <div className="hero-headline-container">
               <AnimatePresence mode="wait">
                 <motion.h1
                   key={`headline-${current}`}
@@ -230,7 +261,7 @@ export default function HeroSlider() {
             </div>
 
             {/* Subtext */}
-            <div style={{ minHeight: "90px", display: "flex", alignItems: "flex-start", marginBottom: "20px" }}>
+            <div className="hero-subtext-container">
               <AnimatePresence mode="wait">
                 <motion.p
                   key={`subtext-${current}`}
